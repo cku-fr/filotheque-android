@@ -29,7 +29,7 @@ class ColorUtilsTest {
     fun `colorSortKey orders neutrals before chromatic colors`() {
         val whiteKey = ColorUtils.colorSortKey("#FFFFFF")
         val blackKey = ColorUtils.colorSortKey("#000000")
-        val redKey = ColorUtils.colorSortKey("#E31D42")
+        val redKey = ColorUtils.colorSortKey("#FF0000")
         val blueKey = ColorUtils.colorSortKey("#30C2EC")
 
         assertTrue(whiteKey < blackKey)
