@@ -24,6 +24,8 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Style
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FilterChip
@@ -206,7 +208,17 @@ fun MainScreen(
                 NavigationBarItem(
                     selected = currentTab == MainTab.SHOPPING,
                     onClick = { currentTab = MainTab.SHOPPING },
-                    icon = { Icon(Icons.Default.ShoppingCart, contentDescription = null) },
+                    icon = {
+                        BadgedBox(
+                            badge = {
+                                if (shoppingList.isNotEmpty()) {
+                                    Badge { Text(shoppingList.size.toString()) }
+                                }
+                            }
+                        ) {
+                            Icon(Icons.Default.ShoppingCart, contentDescription = null)
+                        }
+                    },
                     label = { Text(MainTab.SHOPPING.label) }
                 )
                 NavigationBarItem(

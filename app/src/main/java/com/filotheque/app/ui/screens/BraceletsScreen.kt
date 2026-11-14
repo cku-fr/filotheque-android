@@ -201,6 +201,7 @@ fun BraceletsScreen(
     if (selectedProject != null) {
         var showEditPicker by remember { mutableStateOf(false) }
         val missingCount = selectedProject.threads.count { it.quantity == 0 }
+        val missingNotInCart = selectedProject.threads.count { it.quantity == 0 && !it.isOnShoppingList }
 
         ModalBottomSheet(onDismissRequest = { onSelectProject(null) }) {
             Column(
@@ -247,7 +248,20 @@ fun BraceletsScreen(
                         Spacer(modifier = Modifier.width(10.dp))
                         Column(modifier = Modifier.weight(1f)) {
                             Text("${t.brandName} ${t.code}", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-                            Text(t.name, fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                            Text(
+                                text = if (t.isOnShoppingList) "${t.name} · Dans les courses" else t.name,
+                                fontSize = 12.sp,
+                                color = if (t.isOnShoppingList) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                        if (t.isOnShoppingList) {
+                            Icon(
+                                imageVector = Icons.Default.ShoppingCart,
+                                contentDescription = "Dans les courses",
+                                tint = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.size(16.dp).padding(end = 2.dp)
+                            )
+                            Spacer(modifier = Modifier.width(6.dp))
                         }
                         Surface(
                             shape = RoundedCornerShape(10.dp),
@@ -267,16 +281,34 @@ fun BraceletsScreen(
                     }
                 }
 
-                if (missingCount > 0) {
+                if (missingNotInCart > 0) {
                     Spacer(modifier = Modifier.height(10.dp))
                     Button(
-                        onClick = { onAddMissingToShoppingList(selectedProject) },
+                        onClick = {
+                            onAddMissingToShoppingList(selectedProject)
+                            onSelectProject(null)
+                        },
                         modifier = Modifier.fillMaxWidth(),
                         shape = RoundedCornerShape(14.dp)
                     ) {
                         Icon(Icons.Default.ShoppingCart, contentDescription = null, modifier = Modifier.size(18.dp))
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("Ajouter les $missingCount manquant(s) aux courses")
+                        Text("Ajouter les $missingNotInCart manquant(s) aux courses")
+                    }
+                } else if (missingCount > 0) {
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = SuccessBg,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(
+                            text = "✓ Tous les fils manquants sont déjà dans les courses",
+                            color = SuccessGreen,
+                            fontSize = 12.5.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp)
+                        )
                     }
                 }
 
