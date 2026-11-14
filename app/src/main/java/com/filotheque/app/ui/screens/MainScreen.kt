@@ -307,7 +307,8 @@ fun MainScreen(
                 MainTab.SHOPPING -> {
                     ShoppingListScreen(
                         items = shoppingList,
-                        onMarkPurchased = threadViewModel::markPurchased
+                        onMarkPurchased = threadViewModel::markPurchased,
+                        onRemoveItem = threadViewModel::removeFromShoppingList
                     )
                 }
 

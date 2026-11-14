@@ -173,6 +173,13 @@ class ThreadViewModel(private val repository: ThreadRepository) : ViewModel() {
         }
     }
 
+    fun removeFromShoppingList(thread: ThreadEntity) {
+        viewModelScope.launch {
+            repository.setShoppingList(thread.id, false)
+            _snackbarMessage.value = "${thread.brandName} ${thread.code} retiré des courses"
+        }
+    }
+
     fun updateNote(threadId: Long, note: String) {
         viewModelScope.launch {
             repository.updateNote(threadId, note)

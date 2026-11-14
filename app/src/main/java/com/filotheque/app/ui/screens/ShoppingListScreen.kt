@@ -21,12 +21,14 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -41,6 +43,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.filotheque.app.data.local.entity.ThreadEntity
 import com.filotheque.app.ui.components.parseComposeColor
+import com.filotheque.app.ui.theme.DangerRed
 import com.filotheque.app.ui.theme.OutlineSoft
 import com.filotheque.app.ui.theme.SuccessBg
 import com.filotheque.app.ui.theme.SuccessGreen
@@ -49,6 +52,7 @@ import com.filotheque.app.ui.theme.SuccessGreen
 fun ShoppingListScreen(
     items: List<ThreadEntity>,
     onMarkPurchased: (ThreadEntity) -> Unit,
+    onRemoveItem: (ThreadEntity) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
@@ -151,6 +155,13 @@ fun ShoppingListScreen(
                             Icon(Icons.Default.Check, contentDescription = null, modifier = Modifier.size(15.dp))
                             Spacer(modifier = Modifier.width(4.dp))
                             Text("Acheté", fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+                        }
+                        IconButton(onClick = { onRemoveItem(thread) }) {
+                            Icon(
+                                imageVector = Icons.Default.DeleteOutline,
+                                contentDescription = "Retirer de la liste",
+                                tint = DangerRed
+                            )
                         }
                     }
                 }
