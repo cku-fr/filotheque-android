@@ -24,6 +24,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ColorLens
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Button
@@ -53,6 +54,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.filotheque.app.data.local.entity.ProjectWithThreads
 import com.filotheque.app.data.local.entity.ThreadEntity
+import com.filotheque.app.ui.components.MultiSelectThreadPickerDialog
 import com.filotheque.app.ui.components.parseComposeColor
 import com.filotheque.app.ui.theme.DangerBg
 import com.filotheque.app.ui.theme.DangerRed
@@ -68,7 +70,7 @@ fun BraceletsScreen(
     selectedProjectId: Long?,
     onSelectProject: (Long?) -> Unit,
     onCreateProject: (name: String, source: String, threadIds: List<Long>) -> Unit,
-    onAddThreadToProject: (Long, Long) -> Unit,
+    onSyncProjectThreads: (projectId: Long, currentIds: Set<Long>, targetIds: Set<Long>) -> Unit,
     onRemoveThreadFromProject: (Long, Long) -> Unit,
     onDeleteProject: (ProjectWithThreads) -> Unit,
     onAddMissingToShoppingList: (ProjectWithThreads) -> Unit,
@@ -197,7 +199,7 @@ fun BraceletsScreen(
 
     val selectedProject = projects.find { it.project.id == selectedProjectId }
     if (selectedProject != null) {
-        var threadSearch by remember { mutableStateOf("") }
+        var showEditPicker by remember { mutableStateOf(false) }
         val missingCount = selectedProject.threads.count { it.quantity == 0 }
 
         ModalBottomSheet(onDismissRequest = { onSelectProject(null) }) {
@@ -279,48 +281,38 @@ fun BraceletsScreen(
                 }
 
                 Spacer(modifier = Modifier.height(12.dp))
-                OutlinedTextField(
-                    value = threadSearch,
-                    onValueChange = { threadSearch = it },
-                    label = { Text("Ajouter un fil au bracelet (code ou nom)") },
+                OutlinedButton(
+                    onClick = { showEditPicker = true },
                     modifier = Modifier.fillMaxWidth(),
-                    singleLine = true
-                )
-                if (threadSearch.isNotBlank()) {
-                    val existingIds = selectedProject.threads.map { it.id }.toSet()
-                    val suggestions = allThreads.filter {
-                        it.id !in existingIds &&
-                            (it.code.contains(threadSearch, true) || it.name.contains(threadSearch, true))
-                    }.take(4)
-                    suggestions.forEach { cand ->
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clickable {
-                                    onAddThreadToProject(selectedProject.project.id, cand.id)
-                                    threadSearch = ""
-                                }
-                                .padding(vertical = 8.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .size(20.dp)
-                                    .clip(CircleShape)
-                                    .background(parseComposeColor(cand.hexColor))
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text("${cand.brandName} ${cand.code} — ${cand.name}", fontSize = 13.sp)
-                        }
-                    }
+                    shape = RoundedCornerShape(14.dp)
+                ) {
+                    Icon(Icons.Default.ColorLens, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Ajouter / modifier les fils (${selectedProject.threads.size})")
                 }
             }
+        }
+
+        if (showEditPicker) {
+            val currentIds = selectedProject.threads.map { it.id }.toSet()
+            MultiSelectThreadPickerDialog(
+                allThreads = allThreads,
+                initialSelectedIds = currentIds,
+                onDismiss = { showEditPicker = false },
+                onConfirm = { targetIds ->
+                    onSyncProjectThreads(selectedProject.project.id, currentIds, targetIds)
+                    showEditPicker = false
+                }
+            )
         }
     }
 
     if (showCreateSheet) {
         var name by remember { mutableStateOf("") }
         var source by remember { mutableStateOf("") }
+        var selectedIds by remember { mutableStateOf<Set<Long>>(emptySet()) }
+        var showCreatePicker by remember { mutableStateOf(false) }
+
         ModalBottomSheet(onDismissRequest = { showCreateSheet = false }) {
             Column(
                 modifier = Modifier
@@ -347,11 +339,44 @@ fun BraceletsScreen(
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true
                 )
-                Spacer(modifier = Modifier.height(14.dp))
+                Spacer(modifier = Modifier.height(12.dp))
+
+                if (selectedIds.isNotEmpty()) {
+                    FlowRow(
+                        horizontalArrangement = Arrangement.spacedBy(6.dp),
+                        verticalArrangement = Arrangement.spacedBy(6.dp),
+                        modifier = Modifier.padding(bottom = 10.dp)
+                    ) {
+                        allThreads.filter { it.id in selectedIds }.forEach { t ->
+                            Box(
+                                modifier = Modifier
+                                    .size(24.dp)
+                                    .clip(CircleShape)
+                                    .background(parseComposeColor(t.hexColor))
+                                    .border(1.dp, Color.Black.copy(alpha = 0.15f), CircleShape)
+                            )
+                        }
+                    }
+                }
+
+                OutlinedButton(
+                    onClick = { showCreatePicker = true },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(14.dp)
+                ) {
+                    Icon(Icons.Default.ColorLens, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        if (selectedIds.isEmpty()) "Choisir les fils du bracelet"
+                        else "Modifier les fils (${selectedIds.size} sélectionnés)"
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(10.dp))
                 Button(
                     onClick = {
                         if (name.isNotBlank()) {
-                            onCreateProject(name, source, emptyList())
+                            onCreateProject(name, source, selectedIds.toList())
                             showCreateSheet = false
                         }
                     },
@@ -361,6 +386,18 @@ fun BraceletsScreen(
                     Text("Créer le bracelet")
                 }
             }
+        }
+
+        if (showCreatePicker) {
+            MultiSelectThreadPickerDialog(
+                allThreads = allThreads,
+                initialSelectedIds = selectedIds,
+                onDismiss = { showCreatePicker = false },
+                onConfirm = { newIds ->
+                    selectedIds = newIds
+                    showCreatePicker = false
+                }
+            )
         }
     }
 }

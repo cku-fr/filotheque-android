@@ -38,6 +38,17 @@ class ProjectViewModel(private val repository: ProjectRepository) : ViewModel() 
         }
     }
 
+    fun syncProjectThreads(projectId: Long, currentIds: Set<Long>, targetIds: Set<Long>) {
+        viewModelScope.launch {
+            (targetIds - currentIds).forEach { id ->
+                repository.addThreadToProject(projectId, id)
+            }
+            (currentIds - targetIds).forEach { id ->
+                repository.removeThreadFromProject(projectId, id)
+            }
+        }
+    }
+
     fun removeThreadFromProject(projectId: Long, threadId: Long) {
         viewModelScope.launch {
             repository.removeThreadFromProject(projectId, threadId)

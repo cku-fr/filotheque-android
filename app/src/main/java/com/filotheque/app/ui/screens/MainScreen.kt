@@ -306,7 +306,7 @@ fun MainScreen(
                         selectedProjectId = selectedProjectId,
                         onSelectProject = projectViewModel::selectProject,
                         onCreateProject = projectViewModel::createProject,
-                        onAddThreadToProject = projectViewModel::addThreadToProject,
+                        onSyncProjectThreads = projectViewModel::syncProjectThreads,
                         onRemoveThreadFromProject = projectViewModel::removeThreadFromProject,
                         onDeleteProject = { projectViewModel.deleteProject(it.project) },
                         onAddMissingToShoppingList = { project ->
