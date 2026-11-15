@@ -194,6 +194,16 @@ class ThreadViewModel(private val repository: ThreadRepository) : ViewModel() {
         }
     }
 
+    fun deleteCustomThread(thread: ThreadEntity) {
+        viewModelScope.launch {
+            repository.deleteCustomThread(thread.id)
+            if (_selectedThread.value?.id == thread.id) {
+                _selectedThread.value = null
+            }
+            _snackbarMessage.value = "${thread.brandName} ${thread.code} supprimé du nuancier"
+        }
+    }
+
     fun computeClosestDmc(hex: String) {
         viewModelScope.launch {
             _closestDmcSuggestion.value = repository.findClosestDmcForHex(hex)

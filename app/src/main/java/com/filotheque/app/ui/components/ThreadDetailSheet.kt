@@ -16,8 +16,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.DeleteOutline
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,9 +27,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -55,11 +59,14 @@ fun ThreadDetailSheet(
     onDismiss: () -> Unit,
     onAdjustQuantity: (Int) -> Unit,
     onToggleShoppingList: () -> Unit,
-    onUpdateNote: (String) -> Unit
+    onUpdateNote: (String) -> Unit,
+    onDeleteCustomThread: (() -> Unit)? = null
 ) {
     val swatchColor = parseComposeColor(thread.hexColor)
     val onSwatchColor = if (ColorUtils.isLightColor(thread.hexColor)) TextPrimary else Color.White
     var noteText by remember(thread.id) { mutableStateOf(thread.note) }
+    var showDeleteConfirm by remember(thread.id) { mutableStateOf(false) }
+    val isCustomThread = thread.brandId != "DMC" && thread.brandId != "ANCHOR"
 
     ModalBottomSheet(onDismissRequest = onDismiss) {
         Column(
@@ -213,6 +220,53 @@ fun ThreadDetailSheet(
                     else "Ajouter à la liste de courses"
                 )
             }
+
+            if (isCustomThread && onDeleteCustomThread != null) {
+                Spacer(modifier = Modifier.height(8.dp))
+                OutlinedButton(
+                    onClick = { showDeleteConfirm = true },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(14.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.error
+                    )
+                ) {
+                    Icon(Icons.Default.DeleteOutline, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Supprimer ce fil personnalisé")
+                }
+            }
         }
+    }
+
+    if (showDeleteConfirm && onDeleteCustomThread != null) {
+        AlertDialog(
+            onDismissRequest = { showDeleteConfirm = false },
+            title = { Text("Supprimer ce fil ?") },
+            text = {
+                Text(
+                    "« ${thread.brandName} ${thread.code} — ${thread.name} » sera définitivement supprimé du nuancier, de votre inventaire, de la liste de courses et des bracelets associés."
+                )
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showDeleteConfirm = false
+                        onDeleteCustomThread()
+                        onDismiss()
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.error
+                    )
+                ) {
+                    Text("Supprimer")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteConfirm = false }) {
+                    Text("Annuler")
+                }
+            }
+        )
     }
 }
