@@ -337,7 +337,6 @@ fun PhotoColorPickerContent(
             }
         }
     }
-}
 
 @Composable
 private fun MatchRow(
