@@ -187,9 +187,9 @@ class ThreadViewModel(private val repository: ThreadRepository) : ViewModel() {
         }
     }
 
-    fun addCustomThread(brand: String, code: String, name: String, hex: String) {
+    fun addCustomThread(brand: String, code: String, name: String, hex: String, isGlitter: Boolean = false) {
         viewModelScope.launch {
-            repository.addCustomThread(brand, code, name, hex, initialQuantity = 1)
+            repository.addCustomThread(brand, code, name, hex, initialQuantity = 1, isGlitter = isGlitter)
             _snackbarMessage.value = "$brand $code ajouté à l'inventaire !"
         }
     }
@@ -199,11 +199,12 @@ class ThreadViewModel(private val repository: ThreadRepository) : ViewModel() {
         brand: String,
         code: String,
         name: String,
-        hex: String
+        hex: String,
+        isGlitter: Boolean = false
     ) {
         viewModelScope.launch {
             try {
-                val updated = repository.updateCustomThread(thread, brand, code, name, hex)
+                val updated = repository.updateCustomThread(thread, brand, code, name, hex, isGlitter)
                 if (_selectedThread.value?.id == thread.id) {
                     _selectedThread.value = updated
                 }

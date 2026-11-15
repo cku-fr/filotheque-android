@@ -54,6 +54,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.filotheque.app.data.local.entity.ProjectWithThreads
 import com.filotheque.app.data.local.entity.ThreadEntity
+import com.filotheque.app.domain.color.ColorUtils
+import com.filotheque.app.ui.components.GlitterOverlay
 import com.filotheque.app.ui.components.MultiSelectThreadPickerDialog
 import com.filotheque.app.ui.components.parseComposeColor
 import com.filotheque.app.ui.theme.DangerBg
@@ -165,7 +167,11 @@ fun BraceletsScreen(
                                         color = if (t.quantity == 0) DangerRed else Color.Black.copy(alpha = 0.15f),
                                         shape = CircleShape
                                     )
-                            )
+                            ) {
+                                if (t.isGlitter) {
+                                    GlitterOverlay(isLightBackground = ColorUtils.isLightColor(t.hexColor))
+                                }
+                            }
                         }
                     }
 
@@ -244,12 +250,17 @@ fun BraceletsScreen(
                                 .size(30.dp)
                                 .clip(RoundedCornerShape(8.dp))
                                 .background(parseComposeColor(t.hexColor))
-                        )
+                        ) {
+                            if (t.isGlitter) {
+                                GlitterOverlay(isLightBackground = ColorUtils.isLightColor(t.hexColor))
+                            }
+                        }
                         Spacer(modifier = Modifier.width(10.dp))
                         Column(modifier = Modifier.weight(1f)) {
                             Text("${t.brandName} ${t.code}", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+                            val displayName = if (t.isGlitter) "✨ ${t.name}" else t.name
                             Text(
-                                text = if (t.isOnShoppingList) "${t.name} · Dans les courses" else t.name,
+                                text = if (t.isOnShoppingList) "$displayName · Dans les courses" else displayName,
                                 fontSize = 12.sp,
                                 color = if (t.isOnShoppingList) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
                             )

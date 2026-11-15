@@ -35,6 +35,7 @@ import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
@@ -74,7 +75,7 @@ fun AddThreadSheet(
     onColorChanged: (String) -> Unit,
     onBatchSubmit: (brandId: String, rawCodes: String) -> Unit,
     onPhotoThreadSelected: (ThreadEntity) -> Unit,
-    onCustomSave: (brand: String, code: String, name: String, hex: String) -> Unit,
+    onCustomSave: (brand: String, code: String, name: String, hex: String, isGlitter: Boolean) -> Unit,
     onDismiss: () -> Unit
 ) {
     var activeTab by remember { mutableStateOf(initialTab) }
@@ -149,8 +150,8 @@ fun AddThreadSheet(
                         allThreads = allThreads,
                         closestDmc = closestDmc,
                         onColorChanged = onColorChanged,
-                        onSave = { brand, code, name, hex ->
-                            onCustomSave(brand, code, name, hex)
+                        onSave = { brand, code, name, hex, isGlitter ->
+                            onCustomSave(brand, code, name, hex, isGlitter)
                             onDismiss()
                         }
                     )
@@ -225,7 +226,7 @@ fun EditCustomThreadSheet(
     allThreads: List<ThreadEntity>,
     closestDmc: ThreadEntity?,
     onColorChanged: (String) -> Unit,
-    onSave: (brand: String, code: String, name: String, hex: String) -> Unit,
+    onSave: (brand: String, code: String, name: String, hex: String, isGlitter: Boolean) -> Unit,
     onDismiss: () -> Unit
 ) {
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
@@ -258,10 +259,11 @@ fun EditCustomThreadSheet(
                 initialCode = thread.code,
                 initialName = thread.name,
                 initialHex = thread.hexColor,
+                initialIsGlitter = thread.isGlitter,
                 submitLabel = "Enregistrer les modifications",
                 onColorChanged = onColorChanged,
-                onSave = { brand, code, name, hex ->
-                    onSave(brand, code, name, hex)
+                onSave = { brand, code, name, hex, isGlitter ->
+                    onSave(brand, code, name, hex, isGlitter)
                     onDismiss()
                 }
             )
@@ -277,13 +279,15 @@ private fun CustomThreadContent(
     initialCode: String = "",
     initialName: String = "",
     initialHex: String = "#98E2C6",
+    initialIsGlitter: Boolean = false,
     submitLabel: String = "Enregistrer dans l'inventaire",
     onColorChanged: (String) -> Unit,
-    onSave: (brand: String, code: String, name: String, hex: String) -> Unit
+    onSave: (brand: String, code: String, name: String, hex: String, isGlitter: Boolean) -> Unit
 ) {
     var brand by remember(initialBrand) { mutableStateOf(initialBrand) }
     var code by remember(initialCode) { mutableStateOf(initialCode) }
     var name by remember(initialName) { mutableStateOf(initialName) }
+    var isGlitter by remember(initialIsGlitter) { mutableStateOf(initialIsGlitter) }
     var showPhotoPicker by remember { mutableStateOf(false) }
 
     val initialRgb = remember(initialHex) { ColorUtils.parseHex(initialHex) }
@@ -315,13 +319,17 @@ private fun CustomThreadContent(
                 .clip(RoundedCornerShape(14.dp))
                 .background(previewColor)
                 .border(1.dp, Color.Black.copy(alpha = 0.08f), RoundedCornerShape(14.dp))
-                .padding(12.dp),
-            contentAlignment = Alignment.CenterStart
         ) {
+            if (isGlitter) {
+                GlitterOverlay(isLightBackground = ColorUtils.isLightColor(hex))
+            }
             Text(
-                text = "${brand.ifBlank { "Marque" }} · $hex",
+                text = "${brand.ifBlank { "Marque" }} · $hex${if (isGlitter) " ✨" else ""}",
                 color = onPreviewColor,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .align(Alignment.CenterStart)
+                    .padding(12.dp)
             )
         }
 
@@ -428,10 +436,29 @@ private fun CustomThreadContent(
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done)
         )
 
+        Spacer(modifier = Modifier.height(8.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text("Fil à paillettes ✨", fontSize = 14.sp, fontWeight = FontWeight.Medium)
+            Switch(
+                checked = isGlitter,
+                onCheckedChange = { isGlitter = it }
+            )
+        }
+
         Spacer(modifier = Modifier.height(14.dp))
         Button(
             onClick = {
-                onSave(brand.ifBlank { "Perso" }, code.ifBlank { "01" }, name.ifBlank { "Couleur perso" }, hex)
+                onSave(
+                    brand.ifBlank { "Perso" },
+                    code.ifBlank { "01" },
+                    name.ifBlank { "Couleur perso" },
+                    hex,
+                    isGlitter
+                )
             },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(14.dp)

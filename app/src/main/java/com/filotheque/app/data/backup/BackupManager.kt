@@ -28,7 +28,8 @@ data class BackupThread(
     val colorFamily: String,
     val quantity: Int,
     val isOnShoppingList: Boolean,
-    val note: String
+    val note: String,
+    val isGlitter: Boolean = false
 )
 
 @Serializable
@@ -66,7 +67,8 @@ class BackupManager(
                 colorFamily = it.colorFamily,
                 quantity = it.quantity,
                 isOnShoppingList = it.isOnShoppingList,
-                note = it.note
+                note = it.note,
+                isGlitter = it.isGlitter
             )
         }
         val projects = projectDao.getAllProjectsWithThreads().map { pwt ->
@@ -95,6 +97,7 @@ class BackupManager(
                         quantity = bt.quantity,
                         isOnShoppingList = bt.isOnShoppingList,
                         note = bt.note,
+                        isGlitter = bt.isGlitter,
                         updatedAt = System.currentTimeMillis()
                     )
                 )
@@ -112,7 +115,8 @@ class BackupManager(
                         colorFamily = bt.colorFamily,
                         quantity = bt.quantity,
                         isOnShoppingList = bt.isOnShoppingList,
-                        note = bt.note
+                        note = bt.note,
+                        isGlitter = bt.isGlitter
                     )
                 )
             }

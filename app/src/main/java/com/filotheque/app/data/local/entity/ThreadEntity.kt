@@ -22,5 +22,6 @@ data class ThreadEntity(
     val quantity: Int = 0,
     val isOnShoppingList: Boolean = false,
     val note: String = "",
+    val isGlitter: Boolean = false,
     val updatedAt: Long = System.currentTimeMillis()
 )

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -254,44 +255,52 @@ fun MultiSelectThreadPickerDialog(
                                         .height(50.dp)
                                         .clip(RoundedCornerShape(10.dp))
                                         .background(swatchColor)
-                                        .padding(5.dp)
                                 ) {
-                                    if (isSelected) {
-                                        Surface(
-                                            modifier = Modifier.align(Alignment.TopStart).size(20.dp),
-                                            shape = CircleShape,
-                                            color = MaterialTheme.colorScheme.primary
-                                        ) {
-                                            Icon(
-                                                imageVector = Icons.Default.Check,
-                                                contentDescription = "Sélectionné",
-                                                tint = Color.White,
-                                                modifier = Modifier.padding(3.dp)
-                                            )
-                                        }
+                                    if (thread.isGlitter) {
+                                        GlitterOverlay(isLightBackground = ColorUtils.isLightColor(thread.hexColor))
                                     }
-                                    if (thread.quantity > 0) {
-                                        Surface(
-                                            modifier = Modifier.align(Alignment.TopEnd),
-                                            shape = RoundedCornerShape(8.dp),
-                                            color = Color.White.copy(alpha = 0.9f)
-                                        ) {
-                                            Text(
-                                                text = "×${thread.quantity}",
-                                                fontSize = 10.sp,
-                                                fontWeight = FontWeight.Bold,
-                                                color = TextPrimary,
-                                                modifier = Modifier.padding(horizontal = 5.dp, vertical = 1.dp)
-                                            )
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxSize()
+                                            .padding(5.dp)
+                                    ) {
+                                        if (isSelected) {
+                                            Surface(
+                                                modifier = Modifier.align(Alignment.TopStart).size(20.dp),
+                                                shape = CircleShape,
+                                                color = MaterialTheme.colorScheme.primary
+                                            ) {
+                                                Icon(
+                                                    imageVector = Icons.Default.Check,
+                                                    contentDescription = "Sélectionné",
+                                                    tint = Color.White,
+                                                    modifier = Modifier.padding(3.dp)
+                                                )
+                                            }
                                         }
+                                        if (thread.quantity > 0) {
+                                            Surface(
+                                                modifier = Modifier.align(Alignment.TopEnd),
+                                                shape = RoundedCornerShape(8.dp),
+                                                color = Color.White.copy(alpha = 0.9f)
+                                            ) {
+                                                Text(
+                                                    text = "×${thread.quantity}",
+                                                    fontSize = 10.sp,
+                                                    fontWeight = FontWeight.Bold,
+                                                    color = TextPrimary,
+                                                    modifier = Modifier.padding(horizontal = 5.dp, vertical = 1.dp)
+                                                )
+                                            }
+                                        }
+                                        Text(
+                                            text = thread.code,
+                                            color = onSwatch,
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 11.5.sp,
+                                            modifier = Modifier.align(Alignment.BottomStart)
+                                        )
                                     }
-                                    Text(
-                                        text = thread.code,
-                                        color = onSwatch,
-                                        fontWeight = FontWeight.Bold,
-                                        fontSize = 11.5.sp,
-                                        modifier = Modifier.align(Alignment.BottomStart)
-                                    )
                                 }
                                 Spacer(modifier = Modifier.height(5.dp))
                                 Text(
@@ -302,7 +311,7 @@ fun MultiSelectThreadPickerDialog(
                                     maxLines = 1
                                 )
                                 Text(
-                                    text = thread.name,
+                                    text = if (thread.isGlitter) "✨ ${thread.name}" else thread.name,
                                     fontSize = 11.sp,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis

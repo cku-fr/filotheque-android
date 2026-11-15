@@ -362,8 +362,8 @@ fun MainScreen(
             allThreads = allThreads,
             closestDmc = closestDmc,
             onColorChanged = threadViewModel::computeClosestDmc,
-            onSave = { brand, code, name, hex ->
-                threadViewModel.updateCustomThread(thread, brand, code, name, hex)
+            onSave = { brand, code, name, hex, isGlitter ->
+                threadViewModel.updateCustomThread(thread, brand, code, name, hex, isGlitter)
             },
             onDismiss = { editingCustomThread = null }
         )

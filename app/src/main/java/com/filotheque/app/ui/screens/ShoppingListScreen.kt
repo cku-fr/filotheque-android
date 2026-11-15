@@ -42,6 +42,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.filotheque.app.data.local.entity.ThreadEntity
+import com.filotheque.app.domain.color.ColorUtils
+import com.filotheque.app.ui.components.GlitterOverlay
 import com.filotheque.app.ui.components.parseComposeColor
 import com.filotheque.app.ui.theme.DangerRed
 import com.filotheque.app.ui.theme.OutlineSoft
@@ -133,10 +135,18 @@ fun ShoppingListScreen(
                                 .clip(RoundedCornerShape(10.dp))
                                 .background(parseComposeColor(thread.hexColor))
                                 .border(1.dp, Color.Black.copy(alpha = 0.08f), RoundedCornerShape(10.dp))
-                        )
+                        ) {
+                            if (thread.isGlitter) {
+                                GlitterOverlay(isLightBackground = ColorUtils.isLightColor(thread.hexColor))
+                            }
+                        }
                         Spacer(modifier = Modifier.width(12.dp))
                         Column(modifier = Modifier.weight(1f)) {
-                            Text("${thread.code} — ${thread.name}", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+                            Text(
+                                text = "${thread.code} — ${if (thread.isGlitter) "✨ ${thread.name}" else thread.name}",
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 14.sp
+                            )
                             Text(
                                 "En stock : ${thread.quantity}",
                                 fontSize = 12.sp,

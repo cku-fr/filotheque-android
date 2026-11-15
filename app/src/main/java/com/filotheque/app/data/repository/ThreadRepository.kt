@@ -51,7 +51,8 @@ class ThreadRepository(
         code: String,
         name: String,
         hexColor: String,
-        initialQuantity: Int = 1
+        initialQuantity: Int = 1,
+        isGlitter: Boolean = false
     ) {
         val cleanBrand = brandName.trim().ifEmpty { "Perso" }
         val brandId = "CUSTOM_${cleanBrand.uppercase().replace(Regex("[^A-Z0-9]"), "_")}"
@@ -65,7 +66,8 @@ class ThreadRepository(
                 hexColor = hexColor,
                 colorFamily = ColorUtils.classifyColorFamily(hexColor),
                 quantity = initialQuantity.coerceAtLeast(0),
-                isOnShoppingList = false
+                isOnShoppingList = false,
+                isGlitter = isGlitter
             )
         )
     }
@@ -96,7 +98,8 @@ class ThreadRepository(
         brandName: String,
         code: String,
         name: String,
-        hexColor: String
+        hexColor: String,
+        isGlitter: Boolean = false
     ): ThreadEntity {
         val cleanBrand = brandName.trim().ifEmpty { "Perso" }
         val cleanCode = code.trim().ifEmpty { "PERSO" }
@@ -113,6 +116,7 @@ class ThreadRepository(
             name = name.trim().ifEmpty { "Couleur perso" },
             hexColor = hexColor,
             colorFamily = ColorUtils.classifyColorFamily(hexColor),
+            isGlitter = isGlitter,
             updatedAt = System.currentTimeMillis()
         )
         threadDao.updateThread(updated)

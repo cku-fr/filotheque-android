@@ -84,28 +84,37 @@ fun ThreadDetailSheet(
                     .clip(RoundedCornerShape(16.dp))
                     .background(swatchColor)
                     .border(1.dp, Color.Black.copy(alpha = 0.08f), RoundedCornerShape(16.dp))
-                    .padding(14.dp)
             ) {
-                Column(modifier = Modifier.align(Alignment.BottomStart)) {
+                if (thread.isGlitter) {
+                    GlitterOverlay(isLightBackground = ColorUtils.isLightColor(thread.hexColor))
+                }
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(88.dp)
+                        .padding(14.dp)
+                ) {
+                    Column(modifier = Modifier.align(Alignment.BottomStart)) {
+                        Text(
+                            text = if (thread.isGlitter) "${thread.brandName.uppercase()} · ✨ PAILLETÉ" else thread.brandName.uppercase(),
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = onSwatchColor.copy(alpha = 0.85f)
+                        )
+                        Text(
+                            text = "${thread.code} — ${thread.name}",
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = onSwatchColor
+                        )
+                    }
                     Text(
-                        text = thread.brandName.uppercase(),
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = onSwatchColor.copy(alpha = 0.85f)
-                    )
-                    Text(
-                        text = "${thread.code} — ${thread.name}",
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = onSwatchColor
+                        text = thread.colorFamily,
+                        fontSize = 12.sp,
+                        color = onSwatchColor.copy(alpha = 0.85f),
+                        modifier = Modifier.align(Alignment.BottomEnd)
                     )
                 }
-                Text(
-                    text = thread.colorFamily,
-                    fontSize = 12.sp,
-                    color = onSwatchColor.copy(alpha = 0.85f),
-                    modifier = Modifier.align(Alignment.BottomEnd)
-                )
             }
 
             Spacer(modifier = Modifier.height(16.dp))

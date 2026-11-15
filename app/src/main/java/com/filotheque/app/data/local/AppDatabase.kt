@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.filotheque.app.data.local.dao.EquivalenceDao
 import com.filotheque.app.data.local.dao.ProjectDao
@@ -42,7 +43,7 @@ private data class RawEquivalence(
         ProjectEntity::class,
         ProjectThreadCrossRef::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -58,6 +59,12 @@ abstract class AppDatabase : RoomDatabase() {
         private const val KEY_SEED_VERSION = "seed_version"
         private const val CURRENT_SEED_VERSION = 2
 
+        private val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE threads ADD COLUMN isGlitter INTEGER NOT NULL DEFAULT 0")
+            }
+        }
+
         private val json = Json { ignoreUnknownKeys = true }
 
         fun getInstance(context: Context): AppDatabase {
@@ -68,6 +75,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "filotheque.db"
                 )
+                    .addMigrations(MIGRATION_1_2)
                     .addCallback(object : Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
