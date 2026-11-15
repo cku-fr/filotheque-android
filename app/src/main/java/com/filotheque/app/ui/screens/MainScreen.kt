@@ -16,10 +16,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Bolt
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.ColorLens
 import androidx.compose.material.icons.filled.Inventory2
-import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.ShoppingCart
@@ -54,9 +53,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.filotheque.app.ui.components.AddCustomThreadSheet
-import com.filotheque.app.ui.components.BatchAddSheet
-import com.filotheque.app.ui.components.PhotoColorPickerSheet
+import com.filotheque.app.ui.components.AddThreadSheet
+import com.filotheque.app.ui.components.AddThreadTab
 import com.filotheque.app.ui.components.SettingsBackupSheet
 import com.filotheque.app.ui.components.ThreadDetailSheet
 import com.filotheque.app.ui.viewmodel.BrandFilter
@@ -83,10 +81,8 @@ fun MainScreen(
     val snackbarHostState = remember { SnackbarHostState() }
 
     var currentTab by remember { mutableStateOf(MainTab.INVENTORY) }
-    var showAddCustomSheet by remember { mutableStateOf(false) }
-    var showBatchAddSheet by remember { mutableStateOf(false) }
+    var showAddThreadSheet by remember { mutableStateOf(false) }
     var showSettingsSheet by remember { mutableStateOf(false) }
-    var showPhotoIdentifierSheet by remember { mutableStateOf(false) }
 
     val filter by threadViewModel.filter.collectAsState()
     val allThreads by threadViewModel.allThreads.collectAsState()
@@ -152,11 +148,6 @@ fun MainScreen(
                         )
                     },
                     actions = {
-                        if (currentTab == MainTab.INVENTORY || currentTab == MainTab.CHARTS) {
-                            IconButton(onClick = { showBatchAddSheet = true }) {
-                                Icon(Icons.Default.Bolt, contentDescription = "Ajout rapide par codes")
-                            }
-                        }
                         IconButton(onClick = { showSettingsSheet = true }) {
                             Icon(Icons.Default.Settings, contentDescription = "Statistiques et sauvegarde")
                         }
@@ -166,11 +157,13 @@ fun MainScreen(
                     OutlinedTextField(
                         value = filter.searchQuery,
                         onValueChange = threadViewModel::setSearchQuery,
-                        placeholder = { Text("Rechercher un code (310, B5200...) ou nom", fontSize = 14.sp) },
+                        placeholder = { Text("Rechercher un code (310, E334, B5200...) ou nom", fontSize = 14.sp) },
                         leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                         trailingIcon = {
-                            IconButton(onClick = { showPhotoIdentifierSheet = true }) {
-                                Icon(Icons.Default.PhotoCamera, contentDescription = "Identifier par photo")
+                            if (filter.searchQuery.isNotEmpty()) {
+                                IconButton(onClick = { threadViewModel.setSearchQuery("") }) {
+                                    Icon(Icons.Default.Close, contentDescription = "Effacer la recherche")
+                                }
                             }
                         },
                         singleLine = true,
@@ -185,9 +178,9 @@ fun MainScreen(
         floatingActionButton = {
             if (currentTab == MainTab.INVENTORY || currentTab == MainTab.CHARTS) {
                 ExtendedFloatingActionButton(
-                    onClick = { showAddCustomSheet = true },
+                    onClick = { showAddThreadSheet = true },
                     icon = { Icon(Icons.Default.Add, contentDescription = null) },
-                    text = { Text("Fil tiers") }
+                    text = { Text("Ajouter") }
                 )
             }
         },
@@ -254,7 +247,7 @@ fun MainScreen(
                         viewMode = filter.viewMode,
                         sortMode = filter.sortMode,
                         selectedColorFamily = filter.colorFamily,
-                        emptyMessage = "Votre boîte est vide. Ajoutez vos fils depuis Nuanciers ou via le bouton ⚡ !",
+                        emptyMessage = "Votre boîte est vide. Ajoutez vos fils depuis Nuanciers ou via le bouton + Ajouter !",
                         onSelectColorFamily = threadViewModel::setColorFamily,
                         onToggleViewMode = threadViewModel::toggleViewMode,
                         onToggleSortMode = threadViewModel::toggleSortMode,
@@ -347,29 +340,21 @@ fun MainScreen(
         )
     }
 
-    if (showAddCustomSheet) {
-        AddCustomThreadSheet(
+    if (showAddThreadSheet) {
+        val activeBrand = if (currentTab == MainTab.CHARTS) filter.chartBrand else filter.brandFilter
+        val initialTab = if (activeBrand == BrandFilter.CUSTOM) AddThreadTab.CUSTOM else AddThreadTab.CODES
+        val initialBrandId = if (activeBrand == BrandFilter.ANCHOR) "ANCHOR" else "DMC"
+
+        AddThreadSheet(
             allThreads = allThreads,
             closestDmc = closestDmc,
+            initialTab = initialTab,
+            initialBrandId = initialBrandId,
             onColorChanged = threadViewModel::computeClosestDmc,
-            onDismiss = { showAddCustomSheet = false },
-            onSave = threadViewModel::addCustomThread
-        )
-    }
-
-    if (showPhotoIdentifierSheet) {
-        PhotoColorPickerSheet(
-            allThreads = allThreads,
-            pickColorOnly = false,
-            onDismiss = { showPhotoIdentifierSheet = false },
-            onThreadSelected = { thread -> threadViewModel.selectThread(thread) }
-        )
-    }
-
-    if (showBatchAddSheet) {
-        BatchAddSheet(
-            onDismiss = { showBatchAddSheet = false },
-            onSubmit = threadViewModel::batchAddByCodes
+            onBatchSubmit = threadViewModel::batchAddByCodes,
+            onPhotoThreadSelected = { thread -> threadViewModel.selectThread(thread) },
+            onCustomSave = threadViewModel::addCustomThread,
+            onDismiss = { showAddThreadSheet = false }
         )
     }
 

@@ -54,12 +54,17 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
+        private const val PREFS_NAME = "filotheque_prefs"
+        private const val KEY_SEED_VERSION = "seed_version"
+        private const val CURRENT_SEED_VERSION = 2
+
         private val json = Json { ignoreUnknownKeys = true }
 
         fun getInstance(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
+                val appContext = context.applicationContext
                 val instance = Room.databaseBuilder(
-                    context.applicationContext,
+                    appContext,
                     AppDatabase::class.java,
                     "filotheque.db"
                 )
@@ -67,7 +72,24 @@ abstract class AppDatabase : RoomDatabase() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
                             CoroutineScope(Dispatchers.IO).launch {
-                                INSTANCE?.let { prepopulate(context.applicationContext, it) }
+                                INSTANCE?.let {
+                                    prepopulate(appContext, it)
+                                    appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                                        .edit().putInt(KEY_SEED_VERSION, CURRENT_SEED_VERSION).apply()
+                                }
+                            }
+                        }
+
+                        override fun onOpen(db: SupportSQLiteDatabase) {
+                            super.onOpen(db)
+                            val prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                            if (prefs.getInt(KEY_SEED_VERSION, 1) < CURRENT_SEED_VERSION) {
+                                CoroutineScope(Dispatchers.IO).launch {
+                                    INSTANCE?.let {
+                                        syncMissingBuiltInThreads(appContext, it)
+                                        prefs.edit().putInt(KEY_SEED_VERSION, CURRENT_SEED_VERSION).apply()
+                                    }
+                                }
                             }
                         }
                     })
@@ -75,6 +97,13 @@ abstract class AppDatabase : RoomDatabase() {
                 INSTANCE = instance
                 instance
             }
+        }
+
+        private suspend fun syncMissingBuiltInThreads(context: Context, db: AppDatabase) {
+            val threadDao = db.threadDao()
+            val dmcList = loadChart(context, "dmc.json", "DMC", "DMC")
+            val anchorList = loadChart(context, "anchor.json", "ANCHOR", "Anchor")
+            threadDao.insertThreads(dmcList + anchorList)
         }
 
         private suspend fun prepopulate(context: Context, db: AppDatabase) {

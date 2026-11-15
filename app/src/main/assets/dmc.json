@@ -2932,5 +2932,779 @@
     "name": "Fuschia Very Dark",
     "hex": "#46052D",
     "family": "Rose"
+  },
+  {
+    "code": "E130",
+    "name": "Light Effects Gemstones",
+    "hex": "#83F99F",
+    "family": "Verts"
+  },
+  {
+    "code": "E135",
+    "name": "Light Effects Golden Dawn",
+    "hex": "#D4AF37",
+    "family": "Jaunes"
+  },
+  {
+    "code": "E155",
+    "name": "Light Effects Amethyst",
+    "hex": "#9891B6",
+    "family": "Bleu"
+  },
+  {
+    "code": "E168",
+    "name": "Light Effects Silver",
+    "hex": "#D1D1D1",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "E211",
+    "name": "Light Effects Lilac",
+    "hex": "#E3CBE3",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "E301",
+    "name": "Light Effects Copper",
+    "hex": "#B35F2B",
+    "family": "Orange"
+  },
+  {
+    "code": "E310",
+    "name": "Light Effects Ebony",
+    "hex": "#000000",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "E316",
+    "name": "Light Effects Pink Amethyst",
+    "hex": "#B7737F",
+    "family": "Rouge"
+  },
+  {
+    "code": "E317",
+    "name": "Light Effects Titanium",
+    "hex": "#6C6C6C",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "E321",
+    "name": "Light Effects Red Ruby",
+    "hex": "#C72B3B",
+    "family": "Rouge"
+  },
+  {
+    "code": "E334",
+    "name": "Light Effects Blue Topaz",
+    "hex": "#739FC1",
+    "family": "Bleu"
+  },
+  {
+    "code": "E415",
+    "name": "Light Effects Pewter",
+    "hex": "#D3D3D6",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "E436",
+    "name": "Light Effects Golden Oak",
+    "hex": "#CB9051",
+    "family": "Orange"
+  },
+  {
+    "code": "E677",
+    "name": "Light Effects White Gold",
+    "hex": "#F5ECCB",
+    "family": "Jaune"
+  },
+  {
+    "code": "E699",
+    "name": "Light Effects Green Emerald",
+    "hex": "#056517",
+    "family": "Vert"
+  },
+  {
+    "code": "E703",
+    "name": "Light Effects Light Green Emerald",
+    "hex": "#7BB547",
+    "family": "Vert"
+  },
+  {
+    "code": "E718",
+    "name": "Light Effects Pink Garnet",
+    "hex": "#9C2462",
+    "family": "Rose"
+  },
+  {
+    "code": "E746",
+    "name": "Light Effects Cream",
+    "hex": "#FCFCEE",
+    "family": "Blanc"
+  },
+  {
+    "code": "E747",
+    "name": "Light Effects Baby Blue",
+    "hex": "#E5FCFD",
+    "family": "Blanc"
+  },
+  {
+    "code": "E815",
+    "name": "Light Effects Dark Red Ruby",
+    "hex": "#87071F",
+    "family": "Rouge"
+  },
+  {
+    "code": "E818",
+    "name": "Light Effects Soft Pink",
+    "hex": "#FFDFD9",
+    "family": "Rouge"
+  },
+  {
+    "code": "E825",
+    "name": "Light Effects Blue Sapphire",
+    "hex": "#4781A5",
+    "family": "Bleu"
+  },
+  {
+    "code": "E898",
+    "name": "Light Effects Dark Oak",
+    "hex": "#492A13",
+    "family": "Marron"
+  },
+  {
+    "code": "E940",
+    "name": "Light Effects Glow-In-The-Dark",
+    "hex": "#EBF7E3",
+    "family": "Neutres"
+  },
+  {
+    "code": "E966",
+    "name": "Light Effects Lime",
+    "hex": "#B9D7C0",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "E967",
+    "name": "Light Effects Soft Peach",
+    "hex": "#FFDED5",
+    "family": "Rouge"
+  },
+  {
+    "code": "E980",
+    "name": "Light Effects Neon Yellow",
+    "hex": "#EEFF1B",
+    "family": "Jaunes"
+  },
+  {
+    "code": "E990",
+    "name": "Light Effects Neon Green",
+    "hex": "#39FF14",
+    "family": "Verts"
+  },
+  {
+    "code": "E3685",
+    "name": "Light Effects Rosewood",
+    "hex": "#881531",
+    "family": "Rouge"
+  },
+  {
+    "code": "E3747",
+    "name": "Light Effects Sky Blue",
+    "hex": "#D3D7ED",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "E3821",
+    "name": "Light Effects Light Gold",
+    "hex": "#F3CE75",
+    "family": "Jaune"
+  },
+  {
+    "code": "E3837",
+    "name": "Light Effects Purple Ruby",
+    "hex": "#6C3A6E",
+    "family": "Violet"
+  },
+  {
+    "code": "E3843",
+    "name": "Light Effects Light Blue Sapphire",
+    "hex": "#14AAD0",
+    "family": "Bleu"
+  },
+  {
+    "code": "E3849",
+    "name": "Light Effects Aquamarine Blue",
+    "hex": "#52B3A4",
+    "family": "Bleu"
+  },
+  {
+    "code": "E3852",
+    "name": "Light Effects Dark Gold",
+    "hex": "#CD9D37",
+    "family": "Orange"
+  },
+  {
+    "code": "E5200",
+    "name": "Light Effects White",
+    "hex": "#FFFFFF",
+    "family": "Blanc"
+  },
+  {
+    "code": "CBLANC",
+    "name": "Étoile White",
+    "hex": "#FCFBF8",
+    "family": "Blanc"
+  },
+  {
+    "code": "CECRU",
+    "name": "Étoile Ecru",
+    "hex": "#F0EADA",
+    "family": "Blanc"
+  },
+  {
+    "code": "C310",
+    "name": "Étoile Black",
+    "hex": "#000000",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "C318",
+    "name": "Étoile Steel Grey Light",
+    "hex": "#ABABAB",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "C321",
+    "name": "Étoile Red",
+    "hex": "#C72B3B",
+    "family": "Rouge"
+  },
+  {
+    "code": "C415",
+    "name": "Étoile Pearl Grey",
+    "hex": "#D3D3D6",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "C433",
+    "name": "Étoile Brown Medium",
+    "hex": "#7A451F",
+    "family": "Marron"
+  },
+  {
+    "code": "C436",
+    "name": "Étoile Tan",
+    "hex": "#CB9051",
+    "family": "Orange"
+  },
+  {
+    "code": "C444",
+    "name": "Étoile Lemon Dark",
+    "hex": "#FFD600",
+    "family": "Jaune"
+  },
+  {
+    "code": "C471",
+    "name": "Étoile Avocado Green Very Light",
+    "hex": "#AEBF79",
+    "family": "Vert"
+  },
+  {
+    "code": "C519",
+    "name": "Étoile Sky Blue",
+    "hex": "#7EB1C8",
+    "family": "Bleu"
+  },
+  {
+    "code": "C550",
+    "name": "Étoile Violet Very Dark",
+    "hex": "#5C184E",
+    "family": "Rose"
+  },
+  {
+    "code": "C554",
+    "name": "Étoile Violet Light",
+    "hex": "#DBB3CB",
+    "family": "Rose"
+  },
+  {
+    "code": "C600",
+    "name": "Étoile Cranberry Very Dark",
+    "hex": "#CD2F63",
+    "family": "Rose"
+  },
+  {
+    "code": "C603",
+    "name": "Étoile Cranberry",
+    "hex": "#FFA4BE",
+    "family": "Rose"
+  },
+  {
+    "code": "C666",
+    "name": "Étoile Bright Red",
+    "hex": "#E31D42",
+    "family": "Rouge"
+  },
+  {
+    "code": "C699",
+    "name": "Étoile Green",
+    "hex": "#056517",
+    "family": "Vert"
+  },
+  {
+    "code": "C725",
+    "name": "Étoile Topaz Medium Light",
+    "hex": "#FFC840",
+    "family": "Jaune"
+  },
+  {
+    "code": "C738",
+    "name": "Étoile Tan Very Light",
+    "hex": "#ECCC9E",
+    "family": "Orange"
+  },
+  {
+    "code": "C740",
+    "name": "Étoile Tangerine",
+    "hex": "#FF8B00",
+    "family": "Orange"
+  },
+  {
+    "code": "C798",
+    "name": "Étoile Delft Blue Dark",
+    "hex": "#466A8E",
+    "family": "Bleu"
+  },
+  {
+    "code": "C814",
+    "name": "Étoile Garnet Dark",
+    "hex": "#7B001B",
+    "family": "Rouge"
+  },
+  {
+    "code": "C816",
+    "name": "Étoile Garnet",
+    "hex": "#970B23",
+    "family": "Rouge"
+  },
+  {
+    "code": "C820",
+    "name": "Étoile Royal Blue Very Dark",
+    "hex": "#0E365C",
+    "family": "Bleu"
+  },
+  {
+    "code": "C823",
+    "name": "Étoile Navy Blue Dark",
+    "hex": "#213063",
+    "family": "Bleu"
+  },
+  {
+    "code": "C840",
+    "name": "Étoile Beige Brown Medium",
+    "hex": "#9A7C5C",
+    "family": "Orange"
+  },
+  {
+    "code": "C890",
+    "name": "Étoile Pistachio Green Ultra Dark",
+    "hex": "#174923",
+    "family": "Vert"
+  },
+  {
+    "code": "C900",
+    "name": "Étoile Burnt Orange Dark",
+    "hex": "#D15807",
+    "family": "Orange"
+  },
+  {
+    "code": "C907",
+    "name": "Étoile Parrot Green Light",
+    "hex": "#C7E666",
+    "family": "Vert"
+  },
+  {
+    "code": "C915",
+    "name": "Étoile Plum Dark",
+    "hex": "#820043",
+    "family": "Rose"
+  },
+  {
+    "code": "C938",
+    "name": "Étoile Coffee Brown Ultra Dark",
+    "hex": "#361F0E",
+    "family": "Marron"
+  },
+  {
+    "code": "C972",
+    "name": "Étoile Canary Deep",
+    "hex": "#FFB515",
+    "family": "Orange"
+  },
+  {
+    "code": "C995",
+    "name": "Étoile Electric Blue Dark",
+    "hex": "#2696B6",
+    "family": "Bleu"
+  },
+  {
+    "code": "C3371",
+    "name": "Étoile Black Brown",
+    "hex": "#1E1108",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "C3799",
+    "name": "Étoile Pewter Grey Very Dark",
+    "hex": "#424242",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "S211",
+    "name": "Satin Lavender Light",
+    "hex": "#E3CBE3",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "S307",
+    "name": "Satin Lemon",
+    "hex": "#FDED54",
+    "family": "Jaune"
+  },
+  {
+    "code": "S310",
+    "name": "Satin Black",
+    "hex": "#000000",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "S321",
+    "name": "Satin Red",
+    "hex": "#C72B3B",
+    "family": "Rouge"
+  },
+  {
+    "code": "S326",
+    "name": "Satin Rose Very Dark",
+    "hex": "#B33B4B",
+    "family": "Rouge"
+  },
+  {
+    "code": "S336",
+    "name": "Satin Navy Blue",
+    "hex": "#253B73",
+    "family": "Bleu"
+  },
+  {
+    "code": "S351",
+    "name": "Satin Coral",
+    "hex": "#E96A67",
+    "family": "Rouge"
+  },
+  {
+    "code": "S352",
+    "name": "Satin Coral Light",
+    "hex": "#FD9C97",
+    "family": "Rouge"
+  },
+  {
+    "code": "S367",
+    "name": "Satin Pistachio Green Dark",
+    "hex": "#617A52",
+    "family": "Vert"
+  },
+  {
+    "code": "S414",
+    "name": "Satin Steel Gray Dark",
+    "hex": "#8C8C8C",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "S415",
+    "name": "Satin Pearl Gray",
+    "hex": "#D3D3D6",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "S434",
+    "name": "Satin Brown Light",
+    "hex": "#985E33",
+    "family": "Orange"
+  },
+  {
+    "code": "S469",
+    "name": "Satin Avocado Green",
+    "hex": "#72843C",
+    "family": "Vert"
+  },
+  {
+    "code": "S471",
+    "name": "Satin Avocado Grn Very Light",
+    "hex": "#AEBF79",
+    "family": "Vert"
+  },
+  {
+    "code": "S472",
+    "name": "Satin Avocado Green Ultra Light",
+    "hex": "#D8E498",
+    "family": "Vert"
+  },
+  {
+    "code": "S501",
+    "name": "Satin Blue Green Dark",
+    "hex": "#396F52",
+    "family": "Vert"
+  },
+  {
+    "code": "S504",
+    "name": "Satin Blue Green Very Light",
+    "hex": "#C4DECC",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "S550",
+    "name": "Satin Violet Very Dark",
+    "hex": "#5C184E",
+    "family": "Rose"
+  },
+  {
+    "code": "S552",
+    "name": "Satin Violet  Medium",
+    "hex": "#803A6B",
+    "family": "Rose"
+  },
+  {
+    "code": "S553",
+    "name": "Satin Violet",
+    "hex": "#A3638B",
+    "family": "Rose"
+  },
+  {
+    "code": "S601",
+    "name": "Satin Cranberry Dark",
+    "hex": "#D1286A",
+    "family": "Rose"
+  },
+  {
+    "code": "S602",
+    "name": "Satin Cranberry Medium",
+    "hex": "#E24874",
+    "family": "Rose"
+  },
+  {
+    "code": "S606",
+    "name": "Satin Orange Red Bright",
+    "hex": "#FA3203",
+    "family": "Rouge"
+  },
+  {
+    "code": "S666",
+    "name": "Satin Bright Red",
+    "hex": "#E31D42",
+    "family": "Rouge"
+  },
+  {
+    "code": "S676",
+    "name": "Satin Old Gold Light",
+    "hex": "#E5CE97",
+    "family": "Jaune"
+  },
+  {
+    "code": "S700",
+    "name": "Satin Green Bright",
+    "hex": "#07731B",
+    "family": "Vert"
+  },
+  {
+    "code": "S702",
+    "name": "Satin Kelly Green",
+    "hex": "#47A72F",
+    "family": "Vert"
+  },
+  {
+    "code": "S712",
+    "name": "Satin Cream",
+    "hex": "#FFFBEF",
+    "family": "Blanc"
+  },
+  {
+    "code": "S726",
+    "name": "Satin Topaz Light",
+    "hex": "#FDD755",
+    "family": "Jaune"
+  },
+  {
+    "code": "S738",
+    "name": "Satin Tan Very Light",
+    "hex": "#ECCC9E",
+    "family": "Orange"
+  },
+  {
+    "code": "S739",
+    "name": "Satin Tan Ultra Very Light",
+    "hex": "#F8E4C8",
+    "family": "Orange"
+  },
+  {
+    "code": "S741",
+    "name": "Satin Tangerine Medium",
+    "hex": "#FFA32B",
+    "family": "Orange"
+  },
+  {
+    "code": "S744",
+    "name": "Satin Yellow Pale",
+    "hex": "#FFE793",
+    "family": "Jaune"
+  },
+  {
+    "code": "S745",
+    "name": "Satin Yellow Pale Light",
+    "hex": "#FFE9AD",
+    "family": "Jaune"
+  },
+  {
+    "code": "S762",
+    "name": "Satin Pearl Gray Very Light",
+    "hex": "#ECECEC",
+    "family": "Blanc"
+  },
+  {
+    "code": "S776",
+    "name": "Satin Pink Medium",
+    "hex": "#FCB0B9",
+    "family": "Rouge"
+  },
+  {
+    "code": "S797",
+    "name": "Satin Royal Blue",
+    "hex": "#13477D",
+    "family": "Bleu"
+  },
+  {
+    "code": "S798",
+    "name": "Satin Delft Blue Dark",
+    "hex": "#466A8E",
+    "family": "Bleu"
+  },
+  {
+    "code": "S799",
+    "name": "Satin Delft Blue Medium",
+    "hex": "#748EB6",
+    "family": "Bleu"
+  },
+  {
+    "code": "S800",
+    "name": "Satin Delft Blue Pale",
+    "hex": "#C0CCDE",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "S818",
+    "name": "Satin Baby Pink",
+    "hex": "#FFDFD9",
+    "family": "Rouge"
+  },
+  {
+    "code": "S820",
+    "name": "Satin Royal Blue Very Dark",
+    "hex": "#0E365C",
+    "family": "Bleu"
+  },
+  {
+    "code": "S841",
+    "name": "Satin Beige Brown Light",
+    "hex": "#B69B7E",
+    "family": "Orange"
+  },
+  {
+    "code": "S898",
+    "name": "Satin Coffee Brown Very Dark",
+    "hex": "#492A13",
+    "family": "Marron"
+  },
+  {
+    "code": "S899",
+    "name": "Satin Rose Medium",
+    "hex": "#F27688",
+    "family": "Rouge"
+  },
+  {
+    "code": "S909",
+    "name": "Satin Emerald Green Very Dark",
+    "hex": "#156F49",
+    "family": "Vert"
+  },
+  {
+    "code": "S915",
+    "name": "Satin Plum Dark",
+    "hex": "#820043",
+    "family": "Rose"
+  },
+  {
+    "code": "S931",
+    "name": "Satin Antique Blue Medium",
+    "hex": "#6A859E",
+    "family": "Bleu"
+  },
+  {
+    "code": "S932",
+    "name": "Satin Antique Blue Light",
+    "hex": "#A2B5C6",
+    "family": "Bleu"
+  },
+  {
+    "code": "S943",
+    "name": "Satin Green Bright Medium",
+    "hex": "#3D9384",
+    "family": "Bleu"
+  },
+  {
+    "code": "S959",
+    "name": "Satin Sea Green Medium",
+    "hex": "#59C7B4",
+    "family": "Bleu"
+  },
+  {
+    "code": "S964",
+    "name": "Satin Sea Green Light",
+    "hex": "#A9E2D8",
+    "family": "Bleu"
+  },
+  {
+    "code": "S976",
+    "name": "Satin Golden Brown Medium",
+    "hex": "#C28142",
+    "family": "Orange"
+  },
+  {
+    "code": "S991",
+    "name": "Satin Aquamarine Dark",
+    "hex": "#477B6E",
+    "family": "Bleu"
+  },
+  {
+    "code": "S995",
+    "name": "Satin Electric Blue Dark",
+    "hex": "#2696B6",
+    "family": "Bleu"
+  },
+  {
+    "code": "S3685",
+    "name": "Satin Mauve Very Dark",
+    "hex": "#881531",
+    "family": "Rouge"
+  },
+  {
+    "code": "S3820",
+    "name": "Satin Straw Dark",
+    "hex": "#DFB65F",
+    "family": "Orange"
+  },
+  {
+    "code": "S5200",
+    "name": "Satin Snow White",
+    "hex": "#FFFFFF",
+    "family": "Blanc"
   }
 ]

@@ -41,6 +41,7 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -76,6 +77,37 @@ import kotlin.math.roundToInt
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PhotoColorPickerSheet(
+    allThreads: List<ThreadEntity>,
+    pickColorOnly: Boolean,
+    onDismiss: () -> Unit,
+    onColorPicked: (String) -> Unit = {},
+    onThreadSelected: (ThreadEntity) -> Unit = {}
+) {
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    ModalBottomSheet(
+        onDismissRequest = onDismiss,
+        sheetState = sheetState
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 20.dp)
+                .padding(bottom = 28.dp)
+        ) {
+            PhotoColorPickerContent(
+                allThreads = allThreads,
+                pickColorOnly = pickColorOnly,
+                onDismiss = onDismiss,
+                onColorPicked = onColorPicked,
+                onThreadSelected = onThreadSelected
+            )
+        }
+    }
+}
+
+@Composable
+fun PhotoColorPickerContent(
     allThreads: List<ThreadEntity>,
     pickColorOnly: Boolean,
     onDismiss: () -> Unit,
@@ -137,19 +169,12 @@ fun PhotoColorPickerSheet(
         } ?: emptyList()
     }
 
-    ModalBottomSheet(onDismissRequest = onDismiss) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 20.dp)
-                .padding(bottom = 28.dp)
-        ) {
-            Text(
-                text = "Reconnaissance couleur par photo",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold
-            )
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = "Reconnaissance couleur par photo",
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold
+        )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = "Prenez une photo à la lumière naturelle puis touchez le fil pour détecter sa teinte (moyenne 9×9 px).",
