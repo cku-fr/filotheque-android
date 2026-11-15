@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.DeleteOutline
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.AlertDialog
@@ -60,6 +61,7 @@ fun ThreadDetailSheet(
     onAdjustQuantity: (Int) -> Unit,
     onToggleShoppingList: () -> Unit,
     onUpdateNote: (String) -> Unit,
+    onEditCustomThread: (() -> Unit)? = null,
     onDeleteCustomThread: (() -> Unit)? = null
 ) {
     val swatchColor = parseComposeColor(thread.hexColor)
@@ -221,19 +223,37 @@ fun ThreadDetailSheet(
                 )
             }
 
-            if (isCustomThread && onDeleteCustomThread != null) {
+            if (isCustomThread && (onEditCustomThread != null || onDeleteCustomThread != null)) {
                 Spacer(modifier = Modifier.height(8.dp))
-                OutlinedButton(
-                    onClick = { showDeleteConfirm = true },
+                Row(
                     modifier = Modifier.fillMaxWidth(),
-                    shape = RoundedCornerShape(14.dp),
-                    colors = ButtonDefaults.outlinedButtonColors(
-                        contentColor = MaterialTheme.colorScheme.error
-                    )
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    Icon(Icons.Default.DeleteOutline, contentDescription = null, modifier = Modifier.size(18.dp))
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text("Supprimer ce fil personnalisé")
+                    if (onEditCustomThread != null) {
+                        OutlinedButton(
+                            onClick = onEditCustomThread,
+                            modifier = Modifier.weight(1f),
+                            shape = RoundedCornerShape(14.dp)
+                        ) {
+                            Icon(Icons.Default.Edit, contentDescription = null, modifier = Modifier.size(18.dp))
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text("Modifier")
+                        }
+                    }
+                    if (onDeleteCustomThread != null) {
+                        OutlinedButton(
+                            onClick = { showDeleteConfirm = true },
+                            modifier = Modifier.weight(1f),
+                            shape = RoundedCornerShape(14.dp),
+                            colors = ButtonDefaults.outlinedButtonColors(
+                                contentColor = MaterialTheme.colorScheme.error
+                            )
+                        ) {
+                            Icon(Icons.Default.DeleteOutline, contentDescription = null, modifier = Modifier.size(18.dp))
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Text("Supprimer")
+                        }
+                    }
                 }
             }
         }

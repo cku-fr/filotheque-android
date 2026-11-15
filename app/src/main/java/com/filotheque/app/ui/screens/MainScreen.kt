@@ -54,8 +54,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.filotheque.app.data.local.entity.ThreadEntity
 import com.filotheque.app.ui.components.AddThreadSheet
 import com.filotheque.app.ui.components.AddThreadTab
+import com.filotheque.app.ui.components.EditCustomThreadSheet
 import com.filotheque.app.ui.components.SettingsBackupSheet
 import com.filotheque.app.ui.components.ThreadDetailSheet
 import com.filotheque.app.ui.viewmodel.BrandFilter
@@ -83,6 +85,7 @@ fun MainScreen(
 
     var currentTab by remember { mutableStateOf(MainTab.INVENTORY) }
     var showAddThreadSheet by remember { mutableStateOf(false) }
+    var editingCustomThread by remember { mutableStateOf<ThreadEntity?>(null) }
     var showSettingsSheet by remember { mutableStateOf(false) }
 
     val filter by threadViewModel.filter.collectAsState()
@@ -345,7 +348,21 @@ fun MainScreen(
             onAdjustQuantity = { delta -> threadViewModel.adjustQuantity(thread.id, delta) },
             onToggleShoppingList = { threadViewModel.toggleShoppingList(thread) },
             onUpdateNote = { note -> threadViewModel.updateNote(thread.id, note) },
+            onEditCustomThread = { editingCustomThread = thread },
             onDeleteCustomThread = { threadViewModel.deleteCustomThread(thread) }
+        )
+    }
+
+    editingCustomThread?.let { thread ->
+        EditCustomThreadSheet(
+            thread = thread,
+            allThreads = allThreads,
+            closestDmc = closestDmc,
+            onColorChanged = threadViewModel::computeClosestDmc,
+            onSave = { brand, code, name, hex ->
+                threadViewModel.updateCustomThread(thread, brand, code, name, hex)
+            },
+            onDismiss = { editingCustomThread = null }
         )
     }
 

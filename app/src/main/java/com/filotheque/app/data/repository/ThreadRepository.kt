@@ -91,6 +91,29 @@ class ThreadRepository(
         return found to notFound
     }
 
+    suspend fun updateCustomThread(
+        thread: ThreadEntity,
+        brandName: String,
+        code: String,
+        name: String,
+        hexColor: String
+    ): ThreadEntity {
+        val cleanBrand = brandName.trim().ifEmpty { "Perso" }
+        val brandId = "CUSTOM_${cleanBrand.uppercase().replace(Regex("[^A-Z0-9]"), "_")}"
+        threadDao.insertBrand(BrandEntity(id = brandId, name = cleanBrand, isBuiltIn = false))
+        val updated = thread.copy(
+            brandId = brandId,
+            brandName = cleanBrand,
+            code = code.trim().ifEmpty { "PERSO" },
+            name = name.trim().ifEmpty { "Couleur perso" },
+            hexColor = hexColor,
+            colorFamily = ColorUtils.classifyColorFamily(hexColor),
+            updatedAt = System.currentTimeMillis()
+        )
+        threadDao.updateThread(updated)
+        return updated
+    }
+
     suspend fun deleteCustomThread(threadId: Long) {
         threadDao.deleteCustomThread(threadId)
     }

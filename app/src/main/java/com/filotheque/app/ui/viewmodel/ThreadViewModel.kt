@@ -194,6 +194,22 @@ class ThreadViewModel(private val repository: ThreadRepository) : ViewModel() {
         }
     }
 
+    fun updateCustomThread(
+        thread: ThreadEntity,
+        brand: String,
+        code: String,
+        name: String,
+        hex: String
+    ) {
+        viewModelScope.launch {
+            val updated = repository.updateCustomThread(thread, brand, code, name, hex)
+            if (_selectedThread.value?.id == thread.id) {
+                _selectedThread.value = updated
+            }
+            _snackbarMessage.value = "${updated.brandName} ${updated.code} mis à jour"
+        }
+    }
+
     fun deleteCustomThread(thread: ThreadEntity) {
         viewModelScope.launch {
             repository.deleteCustomThread(thread.id)

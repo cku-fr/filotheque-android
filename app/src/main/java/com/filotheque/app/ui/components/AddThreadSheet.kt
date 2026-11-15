@@ -218,21 +218,78 @@ private fun BatchCodesContent(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun EditCustomThreadSheet(
+    thread: ThreadEntity,
+    allThreads: List<ThreadEntity>,
+    closestDmc: ThreadEntity?,
+    onColorChanged: (String) -> Unit,
+    onSave: (brand: String, code: String, name: String, hex: String) -> Unit,
+    onDismiss: () -> Unit
+) {
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    val scrollState = rememberScrollState()
+
+    ModalBottomSheet(
+        onDismissRequest = onDismiss,
+        sheetState = sheetState
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(scrollState)
+                .imePadding()
+                .navigationBarsPadding()
+                .padding(horizontal = 20.dp)
+                .padding(bottom = 28.dp)
+        ) {
+            Text(
+                text = "Modifier le fil personnalisé",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(14.dp))
+
+            CustomThreadContent(
+                allThreads = allThreads,
+                closestDmc = closestDmc,
+                initialBrand = thread.brandName,
+                initialCode = thread.code,
+                initialName = thread.name,
+                initialHex = thread.hexColor,
+                submitLabel = "Enregistrer les modifications",
+                onColorChanged = onColorChanged,
+                onSave = { brand, code, name, hex ->
+                    onSave(brand, code, name, hex)
+                    onDismiss()
+                }
+            )
+        }
+    }
+}
+
 @Composable
 private fun CustomThreadContent(
     allThreads: List<ThreadEntity>,
     closestDmc: ThreadEntity?,
+    initialBrand: String = "",
+    initialCode: String = "",
+    initialName: String = "",
+    initialHex: String = "#98E2C6",
+    submitLabel: String = "Enregistrer dans l'inventaire",
     onColorChanged: (String) -> Unit,
     onSave: (brand: String, code: String, name: String, hex: String) -> Unit
 ) {
-    var brand by remember { mutableStateOf("") }
-    var code by remember { mutableStateOf("") }
-    var name by remember { mutableStateOf("") }
+    var brand by remember(initialBrand) { mutableStateOf(initialBrand) }
+    var code by remember(initialCode) { mutableStateOf(initialCode) }
+    var name by remember(initialName) { mutableStateOf(initialName) }
     var showPhotoPicker by remember { mutableStateOf(false) }
 
-    var r by remember { mutableFloatStateOf(152f) }
-    var g by remember { mutableFloatStateOf(226f) }
-    var b by remember { mutableFloatStateOf(198f) }
+    val initialRgb = remember(initialHex) { ColorUtils.parseHex(initialHex) }
+    var r by remember(initialHex) { mutableFloatStateOf(initialRgb.r.toFloat()) }
+    var g by remember(initialHex) { mutableFloatStateOf(initialRgb.g.toFloat()) }
+    var b by remember(initialHex) { mutableFloatStateOf(initialRgb.b.toFloat()) }
 
     val hex = remember(r, g, b) {
         String.format("#%02X%02X%02X", r.roundToInt(), g.roundToInt(), b.roundToInt())
@@ -379,7 +436,7 @@ private fun CustomThreadContent(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(14.dp)
         ) {
-            Text("Enregistrer dans l'inventaire")
+            Text(submitLabel)
         }
     }
 
