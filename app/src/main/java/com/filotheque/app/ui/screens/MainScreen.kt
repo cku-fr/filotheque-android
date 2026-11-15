@@ -51,6 +51,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.filotheque.app.ui.components.AddThreadSheet
@@ -157,7 +158,14 @@ fun MainScreen(
                     OutlinedTextField(
                         value = filter.searchQuery,
                         onValueChange = threadViewModel::setSearchQuery,
-                        placeholder = { Text("Rechercher un code (310, E334, B5200...) ou nom", fontSize = 14.sp) },
+                        placeholder = {
+                            Text(
+                                text = "Code (310, E334...) ou nom",
+                                fontSize = 14.sp,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        },
                         leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                         trailingIcon = {
                             if (filter.searchQuery.isNotEmpty()) {
@@ -170,7 +178,7 @@ fun MainScreen(
                         shape = RoundedCornerShape(24.dp),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 6.dp)
+                            .padding(horizontal = 16.dp, vertical = 4.dp)
                     )
                 }
             }
