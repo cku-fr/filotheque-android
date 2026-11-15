@@ -348,7 +348,10 @@ fun MainScreen(
             onAdjustQuantity = { delta -> threadViewModel.adjustQuantity(thread.id, delta) },
             onToggleShoppingList = { threadViewModel.toggleShoppingList(thread) },
             onUpdateNote = { note -> threadViewModel.updateNote(thread.id, note) },
-            onEditCustomThread = { editingCustomThread = thread },
+            onEditCustomThread = {
+                editingCustomThread = thread
+                threadViewModel.selectThread(null)
+            },
             onDeleteCustomThread = { threadViewModel.deleteCustomThread(thread) }
         )
     }

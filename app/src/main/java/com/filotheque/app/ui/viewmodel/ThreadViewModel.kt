@@ -202,11 +202,15 @@ class ThreadViewModel(private val repository: ThreadRepository) : ViewModel() {
         hex: String
     ) {
         viewModelScope.launch {
-            val updated = repository.updateCustomThread(thread, brand, code, name, hex)
-            if (_selectedThread.value?.id == thread.id) {
-                _selectedThread.value = updated
+            try {
+                val updated = repository.updateCustomThread(thread, brand, code, name, hex)
+                if (_selectedThread.value?.id == thread.id) {
+                    _selectedThread.value = updated
+                }
+                _snackbarMessage.value = "${updated.brandName} ${updated.code} mis à jour"
+            } catch (e: Exception) {
+                _snackbarMessage.value = e.message ?: "Impossible de modifier ce fil (code déjà utilisé)"
             }
-            _snackbarMessage.value = "${updated.brandName} ${updated.code} mis à jour"
         }
     }
 

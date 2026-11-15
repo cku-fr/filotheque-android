@@ -99,12 +99,17 @@ class ThreadRepository(
         hexColor: String
     ): ThreadEntity {
         val cleanBrand = brandName.trim().ifEmpty { "Perso" }
+        val cleanCode = code.trim().ifEmpty { "PERSO" }
         val brandId = "CUSTOM_${cleanBrand.uppercase().replace(Regex("[^A-Z0-9]"), "_")}"
+        val existing = threadDao.findByBrandAndCode(brandId, cleanCode)
+        if (existing != null && existing.id != thread.id) {
+            throw IllegalArgumentException("Le code $cleanCode existe déjà pour $cleanBrand")
+        }
         threadDao.insertBrand(BrandEntity(id = brandId, name = cleanBrand, isBuiltIn = false))
         val updated = thread.copy(
             brandId = brandId,
             brandName = cleanBrand,
-            code = code.trim().ifEmpty { "PERSO" },
+            code = cleanCode,
             name = name.trim().ifEmpty { "Couleur perso" },
             hexColor = hexColor,
             colorFamily = ColorUtils.classifyColorFamily(hexColor),
