@@ -82,7 +82,7 @@ fun ThreadDetailSheet(
                     .fillMaxWidth()
                     .height(88.dp)
                     .clip(RoundedCornerShape(16.dp))
-                    .background(swatchColor)
+                    .background(swatchBrush(thread))
                     .border(1.dp, Color.Black.copy(alpha = 0.08f), RoundedCornerShape(16.dp))
             ) {
                 if (thread.isGlitter) {
@@ -95,8 +95,13 @@ fun ThreadDetailSheet(
                         .padding(14.dp)
                 ) {
                     Column(modifier = Modifier.align(Alignment.BottomStart)) {
+                        val subtitle = buildString {
+                            append(thread.brandName.uppercase())
+                            if (thread.isGlitter) append(" · ✨ PAILLETÉ")
+                            if (thread.gradientColors.isNotBlank()) append(" · 🌈 MULTICOLORE")
+                        }
                         Text(
-                            text = if (thread.isGlitter) "${thread.brandName.uppercase()} · ✨ PAILLETÉ" else thread.brandName.uppercase(),
+                            text = subtitle,
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Bold,
                             color = onSwatchColor.copy(alpha = 0.85f)

@@ -58,6 +58,8 @@ import com.filotheque.app.domain.color.ColorUtils
 import com.filotheque.app.ui.components.GlitterOverlay
 import com.filotheque.app.ui.components.MultiSelectThreadPickerDialog
 import com.filotheque.app.ui.components.parseComposeColor
+import com.filotheque.app.ui.components.swatchBrush
+import com.filotheque.app.ui.components.threadDisplayName
 import com.filotheque.app.ui.theme.DangerBg
 import com.filotheque.app.ui.theme.DangerRed
 import com.filotheque.app.ui.theme.OutlineSoft
@@ -161,7 +163,7 @@ fun BraceletsScreen(
                                 modifier = Modifier
                                     .size(24.dp)
                                     .clip(CircleShape)
-                                    .background(parseComposeColor(t.hexColor))
+                                    .background(swatchBrush(t))
                                     .border(
                                         width = if (t.quantity == 0) 2.dp else 1.dp,
                                         color = if (t.quantity == 0) DangerRed else Color.Black.copy(alpha = 0.15f),
@@ -249,7 +251,7 @@ fun BraceletsScreen(
                             modifier = Modifier
                                 .size(30.dp)
                                 .clip(RoundedCornerShape(8.dp))
-                                .background(parseComposeColor(t.hexColor))
+                                .background(swatchBrush(t))
                         ) {
                             if (t.isGlitter) {
                                 GlitterOverlay(isLightBackground = ColorUtils.isLightColor(t.hexColor))
@@ -258,7 +260,7 @@ fun BraceletsScreen(
                         Spacer(modifier = Modifier.width(10.dp))
                         Column(modifier = Modifier.weight(1f)) {
                             Text("${t.brandName} ${t.code}", fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-                            val displayName = if (t.isGlitter) "✨ ${t.name}" else t.name
+                            val displayName = threadDisplayName(t)
                             Text(
                                 text = if (t.isOnShoppingList) "$displayName · Dans les courses" else displayName,
                                 fontSize = 12.sp,
@@ -395,7 +397,7 @@ fun BraceletsScreen(
                                 modifier = Modifier
                                     .size(24.dp)
                                     .clip(CircleShape)
-                                    .background(parseComposeColor(t.hexColor))
+                                    .background(swatchBrush(t))
                                     .border(1.dp, Color.Black.copy(alpha = 0.15f), CircleShape)
                             )
                         }

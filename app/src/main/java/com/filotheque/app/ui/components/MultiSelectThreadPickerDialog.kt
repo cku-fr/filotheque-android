@@ -254,7 +254,7 @@ fun MultiSelectThreadPickerDialog(
                                         .fillMaxWidth()
                                         .height(50.dp)
                                         .clip(RoundedCornerShape(10.dp))
-                                        .background(swatchColor)
+                                        .background(swatchBrush(thread))
                                 ) {
                                     if (thread.isGlitter) {
                                         GlitterOverlay(isLightBackground = ColorUtils.isLightColor(thread.hexColor))
@@ -311,7 +311,7 @@ fun MultiSelectThreadPickerDialog(
                                     maxLines = 1
                                 )
                                 Text(
-                                    text = if (thread.isGlitter) "✨ ${thread.name}" else thread.name,
+                                    text = threadDisplayName(thread),
                                     fontSize = 11.sp,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis

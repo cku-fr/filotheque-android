@@ -45,6 +45,8 @@ import com.filotheque.app.data.local.entity.ThreadEntity
 import com.filotheque.app.domain.color.ColorUtils
 import com.filotheque.app.ui.components.GlitterOverlay
 import com.filotheque.app.ui.components.parseComposeColor
+import com.filotheque.app.ui.components.swatchBrush
+import com.filotheque.app.ui.components.threadDisplayName
 import com.filotheque.app.ui.theme.DangerRed
 import com.filotheque.app.ui.theme.OutlineSoft
 import com.filotheque.app.ui.theme.SuccessBg
@@ -133,7 +135,7 @@ fun ShoppingListScreen(
                             modifier = Modifier
                                 .size(38.dp)
                                 .clip(RoundedCornerShape(10.dp))
-                                .background(parseComposeColor(thread.hexColor))
+                                .background(swatchBrush(thread))
                                 .border(1.dp, Color.Black.copy(alpha = 0.08f), RoundedCornerShape(10.dp))
                         ) {
                             if (thread.isGlitter) {
@@ -143,7 +145,7 @@ fun ShoppingListScreen(
                         Spacer(modifier = Modifier.width(12.dp))
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                text = "${thread.code} — ${if (thread.isGlitter) "✨ ${thread.name}" else thread.name}",
+                                text = "${thread.code} — ${threadDisplayName(thread)}",
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = 14.sp
                             )

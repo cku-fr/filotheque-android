@@ -34,7 +34,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -48,6 +50,25 @@ import com.filotheque.app.ui.theme.TextPrimary
 fun parseComposeColor(hex: String): Color {
     val (r, g, b) = ColorUtils.parseHex(hex)
     return Color(r, g, b)
+}
+
+fun swatchBrush(thread: ThreadEntity): Brush {
+    val parts = thread.gradientColors
+        .split(',')
+        .map { it.trim() }
+        .filter { it.isNotEmpty() }
+        .map { parseComposeColor(it) }
+    return if (parts.size >= 2) {
+        Brush.linearGradient(colors = parts)
+    } else {
+        SolidColor(parseComposeColor(thread.hexColor))
+    }
+}
+
+fun threadDisplayName(thread: ThreadEntity): String = buildString {
+    if (thread.isGlitter) append("✨ ")
+    if (thread.gradientColors.isNotBlank()) append("🌈 ")
+    append(thread.name)
 }
 
 @Composable
@@ -126,7 +147,7 @@ fun ThreadGridCard(
                     .fillMaxWidth()
                     .height(56.dp)
                     .clip(RoundedCornerShape(10.dp))
-                    .background(swatchColor)
+                    .background(swatchBrush(thread))
                     .border(1.dp, Color.Black.copy(alpha = 0.08f), RoundedCornerShape(10.dp))
             ) {
                 if (thread.isGlitter) {
@@ -185,7 +206,7 @@ fun ThreadGridCard(
                 maxLines = 1
             )
             Text(
-                text = if (thread.isGlitter) "✨ ${thread.name}" else thread.name,
+                text = threadDisplayName(thread),
                 fontSize = 12.sp,
                 color = MaterialTheme.colorScheme.onSurface,
                 maxLines = 1,
@@ -222,7 +243,7 @@ fun ThreadListRow(
                 modifier = Modifier
                     .size(40.dp)
                     .clip(RoundedCornerShape(10.dp))
-                    .background(swatchColor)
+                    .background(swatchBrush(thread))
                     .border(1.dp, Color.Black.copy(alpha = 0.1f), RoundedCornerShape(10.dp))
             ) {
                 if (thread.isGlitter) {
@@ -250,7 +271,7 @@ fun ThreadListRow(
                     }
                 }
                 Text(
-                    text = if (thread.isGlitter) "✨ ${thread.name}" else thread.name,
+                    text = threadDisplayName(thread),
                     fontSize = 12.sp,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,

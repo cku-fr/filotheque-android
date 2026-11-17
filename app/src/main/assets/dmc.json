@@ -2937,427 +2937,498 @@
     "code": "E130",
     "name": "Light Effects Gemstones",
     "hex": "#83F99F",
-    "family": "Verts"
+    "family": "Verts",
+    "isGlitter": true
   },
   {
     "code": "E135",
     "name": "Light Effects Golden Dawn",
     "hex": "#D4AF37",
-    "family": "Jaunes"
+    "family": "Jaunes",
+    "isGlitter": true
   },
   {
     "code": "E155",
     "name": "Light Effects Amethyst",
     "hex": "#9891B6",
-    "family": "Bleu"
+    "family": "Bleu",
+    "isGlitter": true
   },
   {
     "code": "E168",
     "name": "Light Effects Silver",
     "hex": "#D1D1D1",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "E211",
     "name": "Light Effects Lilac",
     "hex": "#E3CBE3",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "E301",
     "name": "Light Effects Copper",
     "hex": "#B35F2B",
-    "family": "Orange"
+    "family": "Orange",
+    "isGlitter": true
   },
   {
     "code": "E310",
     "name": "Light Effects Ebony",
     "hex": "#000000",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "E316",
     "name": "Light Effects Pink Amethyst",
     "hex": "#B7737F",
-    "family": "Rouge"
+    "family": "Rouge",
+    "isGlitter": true
   },
   {
     "code": "E317",
     "name": "Light Effects Titanium",
     "hex": "#6C6C6C",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "E321",
     "name": "Light Effects Red Ruby",
     "hex": "#C72B3B",
-    "family": "Rouge"
+    "family": "Rouge",
+    "isGlitter": true
   },
   {
     "code": "E334",
     "name": "Light Effects Blue Topaz",
     "hex": "#739FC1",
-    "family": "Bleu"
+    "family": "Bleu",
+    "isGlitter": true
   },
   {
     "code": "E415",
     "name": "Light Effects Pewter",
     "hex": "#D3D3D6",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "E436",
     "name": "Light Effects Golden Oak",
     "hex": "#CB9051",
-    "family": "Orange"
+    "family": "Orange",
+    "isGlitter": true
   },
   {
     "code": "E677",
     "name": "Light Effects White Gold",
     "hex": "#F5ECCB",
-    "family": "Jaune"
+    "family": "Jaune",
+    "isGlitter": true
   },
   {
     "code": "E699",
     "name": "Light Effects Green Emerald",
     "hex": "#056517",
-    "family": "Vert"
+    "family": "Vert",
+    "isGlitter": true
   },
   {
     "code": "E703",
     "name": "Light Effects Light Green Emerald",
     "hex": "#7BB547",
-    "family": "Vert"
+    "family": "Vert",
+    "isGlitter": true
   },
   {
     "code": "E718",
     "name": "Light Effects Pink Garnet",
     "hex": "#9C2462",
-    "family": "Rose"
+    "family": "Rose",
+    "isGlitter": true
   },
   {
     "code": "E746",
     "name": "Light Effects Cream",
     "hex": "#FCFCEE",
-    "family": "Blanc"
+    "family": "Blanc",
+    "isGlitter": true
   },
   {
     "code": "E747",
     "name": "Light Effects Baby Blue",
     "hex": "#E5FCFD",
-    "family": "Blanc"
+    "family": "Blanc",
+    "isGlitter": true
   },
   {
     "code": "E815",
     "name": "Light Effects Dark Red Ruby",
     "hex": "#87071F",
-    "family": "Rouge"
+    "family": "Rouge",
+    "isGlitter": true
   },
   {
     "code": "E818",
     "name": "Light Effects Soft Pink",
     "hex": "#FFDFD9",
-    "family": "Rouge"
+    "family": "Rouge",
+    "isGlitter": true
   },
   {
     "code": "E825",
     "name": "Light Effects Blue Sapphire",
     "hex": "#4781A5",
-    "family": "Bleu"
+    "family": "Bleu",
+    "isGlitter": true
   },
   {
     "code": "E898",
     "name": "Light Effects Dark Oak",
     "hex": "#492A13",
-    "family": "Marron"
+    "family": "Marron",
+    "isGlitter": true
   },
   {
     "code": "E940",
     "name": "Light Effects Glow-In-The-Dark",
     "hex": "#EBF7E3",
-    "family": "Neutres"
+    "family": "Neutres",
+    "isGlitter": true
   },
   {
     "code": "E966",
     "name": "Light Effects Lime",
     "hex": "#B9D7C0",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "E967",
     "name": "Light Effects Soft Peach",
     "hex": "#FFDED5",
-    "family": "Rouge"
+    "family": "Rouge",
+    "isGlitter": true
   },
   {
     "code": "E980",
     "name": "Light Effects Neon Yellow",
     "hex": "#EEFF1B",
-    "family": "Jaunes"
+    "family": "Jaunes",
+    "isGlitter": true
   },
   {
     "code": "E990",
     "name": "Light Effects Neon Green",
     "hex": "#39FF14",
-    "family": "Verts"
+    "family": "Verts",
+    "isGlitter": true
   },
   {
     "code": "E3685",
     "name": "Light Effects Rosewood",
     "hex": "#881531",
-    "family": "Rouge"
+    "family": "Rouge",
+    "isGlitter": true
   },
   {
     "code": "E3747",
     "name": "Light Effects Sky Blue",
     "hex": "#D3D7ED",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "E3821",
     "name": "Light Effects Light Gold",
     "hex": "#F3CE75",
-    "family": "Jaune"
+    "family": "Jaune",
+    "isGlitter": true
   },
   {
     "code": "E3837",
     "name": "Light Effects Purple Ruby",
     "hex": "#6C3A6E",
-    "family": "Violet"
+    "family": "Violet",
+    "isGlitter": true
   },
   {
     "code": "E3843",
     "name": "Light Effects Light Blue Sapphire",
     "hex": "#14AAD0",
-    "family": "Bleu"
+    "family": "Bleu",
+    "isGlitter": true
   },
   {
     "code": "E3849",
     "name": "Light Effects Aquamarine Blue",
     "hex": "#52B3A4",
-    "family": "Bleu"
+    "family": "Bleu",
+    "isGlitter": true
   },
   {
     "code": "E3852",
     "name": "Light Effects Dark Gold",
     "hex": "#CD9D37",
-    "family": "Orange"
+    "family": "Orange",
+    "isGlitter": true
   },
   {
     "code": "E5200",
     "name": "Light Effects White",
     "hex": "#FFFFFF",
-    "family": "Blanc"
+    "family": "Blanc",
+    "isGlitter": true
   },
   {
     "code": "CBLANC",
     "name": "Étoile White",
     "hex": "#FCFBF8",
-    "family": "Blanc"
+    "family": "Blanc",
+    "isGlitter": true
   },
   {
     "code": "CECRU",
     "name": "Étoile Ecru",
     "hex": "#F0EADA",
-    "family": "Blanc"
+    "family": "Blanc",
+    "isGlitter": true
   },
   {
     "code": "C310",
     "name": "Étoile Black",
     "hex": "#000000",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "C318",
     "name": "Étoile Steel Grey Light",
     "hex": "#ABABAB",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "C321",
     "name": "Étoile Red",
     "hex": "#C72B3B",
-    "family": "Rouge"
+    "family": "Rouge",
+    "isGlitter": true
   },
   {
     "code": "C415",
     "name": "Étoile Pearl Grey",
     "hex": "#D3D3D6",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "C433",
     "name": "Étoile Brown Medium",
     "hex": "#7A451F",
-    "family": "Marron"
+    "family": "Marron",
+    "isGlitter": true
   },
   {
     "code": "C436",
     "name": "Étoile Tan",
     "hex": "#CB9051",
-    "family": "Orange"
+    "family": "Orange",
+    "isGlitter": true
   },
   {
     "code": "C444",
     "name": "Étoile Lemon Dark",
     "hex": "#FFD600",
-    "family": "Jaune"
+    "family": "Jaune",
+    "isGlitter": true
   },
   {
     "code": "C471",
     "name": "Étoile Avocado Green Very Light",
     "hex": "#AEBF79",
-    "family": "Vert"
+    "family": "Vert",
+    "isGlitter": true
   },
   {
     "code": "C519",
     "name": "Étoile Sky Blue",
     "hex": "#7EB1C8",
-    "family": "Bleu"
+    "family": "Bleu",
+    "isGlitter": true
   },
   {
     "code": "C550",
     "name": "Étoile Violet Very Dark",
     "hex": "#5C184E",
-    "family": "Rose"
+    "family": "Rose",
+    "isGlitter": true
   },
   {
     "code": "C554",
     "name": "Étoile Violet Light",
     "hex": "#DBB3CB",
-    "family": "Rose"
+    "family": "Rose",
+    "isGlitter": true
   },
   {
     "code": "C600",
     "name": "Étoile Cranberry Very Dark",
     "hex": "#CD2F63",
-    "family": "Rose"
+    "family": "Rose",
+    "isGlitter": true
   },
   {
     "code": "C603",
     "name": "Étoile Cranberry",
     "hex": "#FFA4BE",
-    "family": "Rose"
+    "family": "Rose",
+    "isGlitter": true
   },
   {
     "code": "C666",
     "name": "Étoile Bright Red",
     "hex": "#E31D42",
-    "family": "Rouge"
+    "family": "Rouge",
+    "isGlitter": true
   },
   {
     "code": "C699",
     "name": "Étoile Green",
     "hex": "#056517",
-    "family": "Vert"
+    "family": "Vert",
+    "isGlitter": true
   },
   {
     "code": "C725",
     "name": "Étoile Topaz Medium Light",
     "hex": "#FFC840",
-    "family": "Jaune"
+    "family": "Jaune",
+    "isGlitter": true
   },
   {
     "code": "C738",
     "name": "Étoile Tan Very Light",
     "hex": "#ECCC9E",
-    "family": "Orange"
+    "family": "Orange",
+    "isGlitter": true
   },
   {
     "code": "C740",
     "name": "Étoile Tangerine",
     "hex": "#FF8B00",
-    "family": "Orange"
+    "family": "Orange",
+    "isGlitter": true
   },
   {
     "code": "C798",
     "name": "Étoile Delft Blue Dark",
     "hex": "#466A8E",
-    "family": "Bleu"
+    "family": "Bleu",
+    "isGlitter": true
   },
   {
     "code": "C814",
     "name": "Étoile Garnet Dark",
     "hex": "#7B001B",
-    "family": "Rouge"
+    "family": "Rouge",
+    "isGlitter": true
   },
   {
     "code": "C816",
     "name": "Étoile Garnet",
     "hex": "#970B23",
-    "family": "Rouge"
+    "family": "Rouge",
+    "isGlitter": true
   },
   {
     "code": "C820",
     "name": "Étoile Royal Blue Very Dark",
     "hex": "#0E365C",
-    "family": "Bleu"
+    "family": "Bleu",
+    "isGlitter": true
   },
   {
     "code": "C823",
     "name": "Étoile Navy Blue Dark",
     "hex": "#213063",
-    "family": "Bleu"
+    "family": "Bleu",
+    "isGlitter": true
   },
   {
     "code": "C840",
     "name": "Étoile Beige Brown Medium",
     "hex": "#9A7C5C",
-    "family": "Orange"
+    "family": "Orange",
+    "isGlitter": true
   },
   {
     "code": "C890",
     "name": "Étoile Pistachio Green Ultra Dark",
     "hex": "#174923",
-    "family": "Vert"
+    "family": "Vert",
+    "isGlitter": true
   },
   {
     "code": "C900",
     "name": "Étoile Burnt Orange Dark",
     "hex": "#D15807",
-    "family": "Orange"
+    "family": "Orange",
+    "isGlitter": true
   },
   {
     "code": "C907",
     "name": "Étoile Parrot Green Light",
     "hex": "#C7E666",
-    "family": "Vert"
+    "family": "Vert",
+    "isGlitter": true
   },
   {
     "code": "C915",
     "name": "Étoile Plum Dark",
     "hex": "#820043",
-    "family": "Rose"
+    "family": "Rose",
+    "isGlitter": true
   },
   {
     "code": "C938",
     "name": "Étoile Coffee Brown Ultra Dark",
     "hex": "#361F0E",
-    "family": "Marron"
+    "family": "Marron",
+    "isGlitter": true
   },
   {
     "code": "C972",
     "name": "Étoile Canary Deep",
     "hex": "#FFB515",
-    "family": "Orange"
+    "family": "Orange",
+    "isGlitter": true
   },
   {
     "code": "C995",
     "name": "Étoile Electric Blue Dark",
     "hex": "#2696B6",
-    "family": "Bleu"
+    "family": "Bleu",
+    "isGlitter": true
   },
   {
     "code": "C3371",
     "name": "Étoile Black Brown",
     "hex": "#1E1108",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "C3799",
     "name": "Étoile Pewter Grey Very Dark",
     "hex": "#424242",
-    "family": "Noir/Gris"
+    "family": "Noir/Gris",
+    "isGlitter": true
   },
   {
     "code": "S211",
@@ -3706,5 +3777,593 @@
     "name": "Satin Snow White",
     "hex": "#FFFFFF",
     "family": "Blanc"
+  },
+  {
+    "code": "4000",
+    "name": "Variations Espresso",
+    "hex": "#4F4B41",
+    "family": "Noir/Gris",
+    "gradientColors": "#4F4B41,#4B3C2A,#1E1108,#424242"
+  },
+  {
+    "code": "4010",
+    "name": "Variations Winter Sky",
+    "hex": "#DBECF5",
+    "family": "Noir/Gris",
+    "gradientColors": "#DBECF5,#ECECEC,#D3D3D6,#C7CAD7"
+  },
+  {
+    "code": "4015",
+    "name": "Variations Blue Ice",
+    "hex": "#D1D1D1",
+    "family": "Noir/Gris",
+    "gradientColors": "#D1D1D1,#D3D3D6,#ECECEC,#E6E8E8"
+  },
+  {
+    "code": "4017",
+    "name": "Variations Polar Ice",
+    "hex": "#BCB4AC",
+    "family": "Noir/Gris",
+    "gradientColors": "#BCB4AC,#FAF6F0,#BDDDED,#D9EBF1"
+  },
+  {
+    "code": "4020",
+    "name": "Variations Tropical Waters",
+    "hex": "#B0C0DA",
+    "family": "Bleu",
+    "gradientColors": "#B0C0DA,#99CFD9,#E5FCFD,#ACD8E2"
+  },
+  {
+    "code": "4022",
+    "name": "Variations Mediterranean Sea",
+    "hex": "#14AAD0",
+    "family": "Bleu",
+    "gradientColors": "#14AAD0,#12AEBA,#30C2EC,#06E3E6"
+  },
+  {
+    "code": "4025",
+    "name": "Variations Petrol",
+    "hex": "#3F7C85",
+    "family": "Bleu",
+    "gradientColors": "#3F7C85,#488E9A,#5BA3B3"
+  },
+  {
+    "code": "4030",
+    "name": "Variations Monet's Pond",
+    "hex": "#6A859E",
+    "family": "Bleu",
+    "gradientColors": "#6A859E,#5BA3B3,#488E9A,#6FAE9F"
+  },
+  {
+    "code": "4040",
+    "name": "Variations Sea Breeze",
+    "hex": "#E5FCFD",
+    "family": "Blanc",
+    "gradientColors": "#E5FCFD,#3EB6A1,#A9E2D8,#A2D6AD"
+  },
+  {
+    "code": "4042",
+    "name": "Variations Very Merry",
+    "hex": "#C72B3B",
+    "family": "Rouge",
+    "gradientColors": "#C72B3B,#FFFFFF,#056517,#C8D8B8"
+  },
+  {
+    "code": "4045",
+    "name": "Variations Evergreen",
+    "hex": "#205F2E",
+    "family": "Vert",
+    "gradientColors": "#205F2E,#617A52,#69885A"
+  },
+  {
+    "code": "4047",
+    "name": "Variations Emerald",
+    "hex": "#156F49",
+    "family": "Vert",
+    "gradientColors": "#156F49,#189065,#6DAB77"
+  },
+  {
+    "code": "4050",
+    "name": "Variations Roaming Pastures",
+    "hex": "#6FAE9F",
+    "family": "Bleu",
+    "gradientColors": "#6FAE9F,#7BB547,#C7E666,#A7AE38"
+  },
+  {
+    "code": "4060",
+    "name": "Variations Lemon-Lime",
+    "hex": "#A9E2D8",
+    "family": "Bleu",
+    "gradientColors": "#A9E2D8,#C8D8B8,#E4ECD4,#EFF4A4"
+  },
+  {
+    "code": "4065",
+    "name": "Variations Forest Floor",
+    "hex": "#98AEAE",
+    "family": "Noir/Gris",
+    "gradientColors": "#98AEAE,#9CA482,#B0A69C,#D2BCA6"
+  },
+  {
+    "code": "4066",
+    "name": "Variations Amazon Moss",
+    "hex": "#627133",
+    "family": "Vert",
+    "gradientColors": "#627133,#4C5826,#72843C,#C0C840"
+  },
+  {
+    "code": "4068",
+    "name": "Variations Camouflage",
+    "hex": "#1E1108",
+    "family": "Noir/Gris",
+    "gradientColors": "#1E1108,#653919,#827B30,#C7C077"
+  },
+  {
+    "code": "4069",
+    "name": "Variations Meadow",
+    "hex": "#7FB335",
+    "family": "Vert",
+    "gradientColors": "#7FB335,#C7E666,#FDED54,#FFFB8B"
+  },
+  {
+    "code": "4070",
+    "name": "Variations Autumn Leaves",
+    "hex": "#F3CE75",
+    "family": "Jaune",
+    "gradientColors": "#F3CE75,#C0C840,#E0E868,#BCB34C"
+  },
+  {
+    "code": "4072",
+    "name": "Variations Dried Thyme",
+    "hex": "#D8BC9A",
+    "family": "Orange",
+    "gradientColors": "#D8BC9A,#E7D6C1,#BC966A,#FDF9CD"
+  },
+  {
+    "code": "4073",
+    "name": "Variations Sunflower",
+    "hex": "#F3CE75",
+    "family": "Jaune",
+    "gradientColors": "#F3CE75,#FDD755,#CD9D37,#F5ECCB"
+  },
+  {
+    "code": "4075",
+    "name": "Variations Wheat Field",
+    "hex": "#DFB65F",
+    "family": "Orange",
+    "gradientColors": "#DFB65F,#F3CE75,#F6DC98,#DBBE7F"
+  },
+  {
+    "code": "4077",
+    "name": "Variations Morning Sunshine",
+    "hex": "#FFE300",
+    "family": "Jaune",
+    "gradientColors": "#FFE300,#FFFB8B,#FFFDE3"
+  },
+  {
+    "code": "4080",
+    "name": "Variations Golden Yellow",
+    "hex": "#FFFDE3",
+    "family": "Noir/Gris",
+    "gradientColors": "#FFFDE3,#FFE793,#FFE9AD,#EFF4A4"
+  },
+  {
+    "code": "4090",
+    "name": "Variations Pumpkin",
+    "hex": "#FFD3B5",
+    "family": "Orange",
+    "gradientColors": "#FFD3B5,#FAD396,#FFE9AD,#FFFDE3"
+  },
+  {
+    "code": "4095",
+    "name": "Variations Desert Sand",
+    "hex": "#FFFDE3",
+    "family": "Noir/Gris",
+    "gradientColors": "#FFFDE3,#E5CE97,#FFDFD5,#FFD7D7"
+  },
+  {
+    "code": "4100",
+    "name": "Variations Summer Breeze",
+    "hex": "#FAD396",
+    "family": "Orange",
+    "gradientColors": "#FAD396,#FECDC2,#FDBD96,#FED376"
+  },
+  {
+    "code": "4110",
+    "name": "Variations Blushing Pink",
+    "hex": "#FFCBD5",
+    "family": "Rouge",
+    "gradientColors": "#FFCBD5,#FCAB98,#FECDC2,#FFDED5"
+  },
+  {
+    "code": "4120",
+    "name": "Variations Sunset",
+    "hex": "#F7976F",
+    "family": "Rouge",
+    "gradientColors": "#F7976F,#E96A67,#FD9C97,#FFD3B5"
+  },
+  {
+    "code": "4122",
+    "name": "Variations Bright Rust",
+    "hex": "#914F12",
+    "family": "Orange",
+    "gradientColors": "#914F12,#FF8B00,#FFBF57,#E31D42"
+  },
+  {
+    "code": "4124",
+    "name": "Variations Soft Orange",
+    "hex": "#E55C1F",
+    "family": "Orange",
+    "gradientColors": "#E55C1F,#F27842,#F7976F"
+  },
+  {
+    "code": "4126",
+    "name": "Variations Autumn Gold",
+    "hex": "#BC966A",
+    "family": "Orange",
+    "gradientColors": "#BC966A,#E27323,#DC9C56,#DFB65F"
+  },
+  {
+    "code": "4128",
+    "name": "Variations Mustard",
+    "hex": "#FFE300",
+    "family": "Jaune",
+    "gradientColors": "#FFE300,#DC9C56,#F7BB77"
+  },
+  {
+    "code": "4129",
+    "name": "Variations Golden Olive",
+    "hex": "#C8AB6C",
+    "family": "Orange",
+    "gradientColors": "#C8AB6C,#AE7720,#D0A53E,#A98204"
+  },
+  {
+    "code": "4130",
+    "name": "Variations Spanish Tile",
+    "hex": "#A14B51",
+    "family": "Rouge",
+    "gradientColors": "#A14B51,#8F430F,#B35F2B,#AC5414"
+  },
+  {
+    "code": "4135",
+    "name": "Variations Terra Cotta",
+    "hex": "#82340A",
+    "family": "Marron",
+    "gradientColors": "#82340A,#594937,#875539,#492A13"
+  },
+  {
+    "code": "4140",
+    "name": "Variations Driftwood",
+    "hex": "#BA8B7C",
+    "family": "Rouge",
+    "gradientColors": "#BA8B7C,#875539,#A4835C,#CBB69C"
+  },
+  {
+    "code": "4145",
+    "name": "Variations Brown Grey",
+    "hex": "#D2BCA6",
+    "family": "Orange",
+    "gradientColors": "#D2BCA6,#B39F8B,#7F6A55"
+  },
+  {
+    "code": "4150",
+    "name": "Variations Vanilla",
+    "hex": "#E3D8CC",
+    "family": "Noir/Gris",
+    "gradientColors": "#E3D8CC,#F0EADA,#F8E4C8,#F2E3CE"
+  },
+  {
+    "code": "4160",
+    "name": "Variations Soft Pink",
+    "hex": "#FFDFD9",
+    "family": "Rouge",
+    "gradientColors": "#FFDFD9,#FFEEE3,#FCFCEE,#F9F7F1"
+  },
+  {
+    "code": "4170",
+    "name": "Variations Strawberry",
+    "hex": "#FFDED5",
+    "family": "Rouge",
+    "gradientColors": "#FFDED5,#FFC0CD,#FFD7D7,#FFEEEB"
+  },
+  {
+    "code": "4180",
+    "name": "Variations Cranberry",
+    "hex": "#FFA4BE",
+    "family": "Rose",
+    "gradientColors": "#FFA4BE,#FFB0BE,#FFC0CD"
+  },
+  {
+    "code": "4190",
+    "name": "Variations Bright Pink",
+    "hex": "#FD5D35",
+    "family": "Rouge",
+    "gradientColors": "#FD5D35,#FF9191,#FFADBC,#FDB5B5"
+  },
+  {
+    "code": "4200",
+    "name": "Variations Wild Fire",
+    "hex": "#C72B3B",
+    "family": "Rouge",
+    "gradientColors": "#C72B3B,#E31D42,#FF5773,#FA3203"
+  },
+  {
+    "code": "4205",
+    "name": "Variations Caliente",
+    "hex": "#E74967",
+    "family": "Rouge",
+    "gradientColors": "#E74967,#C72B3B,#BB051F,#7B001B"
+  },
+  {
+    "code": "4210",
+    "name": "Variations Deep Burgundy",
+    "hex": "#820043",
+    "family": "Rose",
+    "gradientColors": "#820043,#7B001B,#913546,#A7132B"
+  },
+  {
+    "code": "4211",
+    "name": "Variations Azalea",
+    "hex": "#B33B4B",
+    "family": "Rouge",
+    "gradientColors": "#B33B4B,#9C2462,#633666,#C39FC3"
+  },
+  {
+    "code": "4212",
+    "name": "Variations Mixed Berries",
+    "hex": "#5C184E",
+    "family": "Rose",
+    "gradientColors": "#5C184E,#464563,#970B23,#7B001B"
+  },
+  {
+    "code": "4214",
+    "name": "Variations Cotton Candy",
+    "hex": "#F0CED4",
+    "family": "Rouge",
+    "gradientColors": "#F0CED4,#5A8FB8,#FFEEEB,#DBECF5"
+  },
+  {
+    "code": "4215",
+    "name": "Variations Northern Lights",
+    "hex": "#5A8FB8",
+    "family": "Bleu",
+    "gradientColors": "#5A8FB8,#A3AED1,#9891B6,#A37BA7"
+  },
+  {
+    "code": "4220",
+    "name": "Variations Lavender Field",
+    "hex": "#9891B6",
+    "family": "Bleu",
+    "gradientColors": "#9891B6,#A3AED1,#B7BFDD,#BBC3D9"
+  },
+  {
+    "code": "4230",
+    "name": "Variations Crystal Water",
+    "hex": "#5A8FB8",
+    "family": "Bleu",
+    "gradientColors": "#5A8FB8,#94A8C6,#B0C0DA"
+  },
+  {
+    "code": "4235",
+    "name": "Variations Slate Blue",
+    "hex": "#7880A4",
+    "family": "Bleu",
+    "gradientColors": "#7880A4,#999FB7,#C7CAD7"
+  },
+  {
+    "code": "4237",
+    "name": "Variations Laguna Blue",
+    "hex": "#466A8E",
+    "family": "Bleu",
+    "gradientColors": "#466A8E,#E5FCFD,#2C597C,#3D95A5"
+  },
+  {
+    "code": "4240",
+    "name": "Variations Mid Summer Night",
+    "hex": "#253B73",
+    "family": "Bleu",
+    "gradientColors": "#253B73,#1C5066,#35668B,#4C526E"
+  },
+  {
+    "code": "4245",
+    "name": "Variations Mystical Midnight",
+    "hex": "#5C184E",
+    "family": "Rose",
+    "gradientColors": "#5C184E,#464563,#11416D,#1B2853"
+  },
+  {
+    "code": "4250",
+    "name": "Variations Berry Parfait",
+    "hex": "#835B8B",
+    "family": "Violet",
+    "gradientColors": "#835B8B,#E3CBE3,#13477D,#ADA7C7"
+  },
+  {
+    "code": "4255",
+    "name": "Variations Orchid",
+    "hex": "#FCFBF8",
+    "family": "Blanc",
+    "gradientColors": "#FCFBF8,#DBB3CB,#6C3A6E,#5C184E"
+  },
+  {
+    "code": "4260",
+    "name": "Variations Enchanted",
+    "hex": "#F4AED5",
+    "family": "Rose",
+    "gradientColors": "#F4AED5,#EA9CC4,#835B8B,#BA91AA"
+  },
+  {
+    "code": "4265",
+    "name": "Variations Purple Pansy",
+    "hex": "#835B8B",
+    "family": "Violet",
+    "gradientColors": "#835B8B,#E3CBE3,#5C184E,#FDED54"
+  },
+  {
+    "code": "4500",
+    "name": "Coloris Columbine Gardens",
+    "hex": "#889268",
+    "family": "Vert",
+    "gradientColors": "#889268,#B9B982,#FFDFD9,#E4A6AC"
+  },
+  {
+    "code": "4501",
+    "name": "Coloris Wildflowers",
+    "hex": "#90C3CC",
+    "family": "Bleu",
+    "gradientColors": "#90C3CC,#E4ECD4,#F0EADA,#FFADBC"
+  },
+  {
+    "code": "4502",
+    "name": "Coloris Camelia",
+    "hex": "#CCD9B1",
+    "family": "Vert",
+    "gradientColors": "#CCD9B1,#CDDFED,#FFA4BE,#D1286A"
+  },
+  {
+    "code": "4503",
+    "name": "Coloris Wisteria",
+    "hex": "#72375D",
+    "family": "Rose",
+    "gradientColors": "#72375D,#946083,#E0E868,#D7CBD3"
+  },
+  {
+    "code": "4504",
+    "name": "Coloris Hydrangea",
+    "hex": "#6B5743",
+    "family": "Marron",
+    "gradientColors": "#6B5743,#B39F8B,#AB3357,#B7737F"
+  },
+  {
+    "code": "4505",
+    "name": "Coloris Heather",
+    "hex": "#5F6648",
+    "family": "Noir/Gris",
+    "gradientColors": "#5F6648,#9CA482,#956F7C,#B79DA7"
+  },
+  {
+    "code": "4506",
+    "name": "Coloris Spring",
+    "hex": "#D8E498",
+    "family": "Vert",
+    "gradientColors": "#D8E498,#98AEAE,#738B5B,#3E85A2"
+  },
+  {
+    "code": "4507",
+    "name": "Coloris Bougainvillea",
+    "hex": "#E24874",
+    "family": "Rose",
+    "gradientColors": "#E24874,#366970,#59C7B4,#466A8E"
+  },
+  {
+    "code": "4508",
+    "name": "Coloris Frosted Countryside",
+    "hex": "#C7C077",
+    "family": "Jaune",
+    "gradientColors": "#C7C077,#FDF9CD,#EBEAE7,#F4BBA9"
+  },
+  {
+    "code": "4509",
+    "name": "Coloris Granite Coast",
+    "hex": "#6E655C",
+    "family": "Noir/Gris",
+    "gradientColors": "#6E655C,#CC847C,#C0C840,#BA91AA"
+  },
+  {
+    "code": "4510",
+    "name": "Coloris Maple",
+    "hex": "#E0E868",
+    "family": "Jaune",
+    "gradientColors": "#E0E868,#FF7992,#857B61,#C66218"
+  },
+  {
+    "code": "4511",
+    "name": "Coloris Indian Summer",
+    "hex": "#CE9124",
+    "family": "Orange",
+    "gradientColors": "#CE9124,#D21035,#361F0E,#5F6648"
+  },
+  {
+    "code": "4512",
+    "name": "Coloris States",
+    "hex": "#ABABAB",
+    "family": "Noir/Gris",
+    "gradientColors": "#ABABAB,#466A8E,#D21035,#253B73"
+  },
+  {
+    "code": "4513",
+    "name": "Coloris London",
+    "hex": "#FFFFFF",
+    "family": "Blanc",
+    "gradientColors": "#FFFFFF,#565656,#7B001B,#ABABAB"
+  },
+  {
+    "code": "4514",
+    "name": "Coloris Venice",
+    "hex": "#3F7C85",
+    "family": "Bleu",
+    "gradientColors": "#3F7C85,#6C6C6C,#E6CCD9,#72375D"
+  },
+  {
+    "code": "4515",
+    "name": "Coloris Paris",
+    "hex": "#675541",
+    "family": "Marron",
+    "gradientColors": "#675541,#9A7C5C,#A2B5C6,#455C71"
+  },
+  {
+    "code": "4516",
+    "name": "Coloris Black Forest",
+    "hex": "#675541",
+    "family": "Marron",
+    "gradientColors": "#675541,#875539,#FFFBEF,#A7132B"
+  },
+  {
+    "code": "4517",
+    "name": "Coloris Elves",
+    "hex": "#E04848",
+    "family": "Rouge",
+    "gradientColors": "#E04848,#5B9071,#970B23,#FF5773"
+  },
+  {
+    "code": "4518",
+    "name": "Coloris Cottage",
+    "hex": "#624B45",
+    "family": "Noir/Gris",
+    "gradientColors": "#624B45,#A68881,#5F6648,#87071F"
+  },
+  {
+    "code": "4519",
+    "name": "Coloris Jingle Bells",
+    "hex": "#594937",
+    "family": "Marron",
+    "gradientColors": "#594937,#044D33,#A7132B,#C72B3B"
+  },
+  {
+    "code": "4520",
+    "name": "Coloris Christmas Story",
+    "hex": "#C72B3B",
+    "family": "Rouge",
+    "gradientColors": "#C72B3B,#FCFBF8,#D7EDCC,#189065"
+  },
+  {
+    "code": "4521",
+    "name": "Coloris Wide Open Spaces",
+    "hex": "#B1AA97",
+    "family": "Noir/Gris",
+    "gradientColors": "#B1AA97,#313919,#DBBE7F,#4B3C2A"
+  },
+  {
+    "code": "4522",
+    "name": "Coloris Canadian Night",
+    "hex": "#594937",
+    "family": "Marron",
+    "gradientColors": "#594937,#72375D,#424242,#875539"
+  },
+  {
+    "code": "4523",
+    "name": "Coloris North Wind",
+    "hex": "#B0C0DA",
+    "family": "Bleu",
+    "gradientColors": "#B0C0DA,#C39FC3,#917B73,#DCC4AA"
   }
 ]

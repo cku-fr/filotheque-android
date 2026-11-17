@@ -25,7 +25,9 @@ private data class RawChartThread(
     val code: String,
     val name: String,
     val hex: String,
-    val family: String
+    val family: String,
+    val isGlitter: Boolean = false,
+    val gradientColors: String = ""
 )
 
 @Serializable
@@ -43,7 +45,7 @@ private data class RawEquivalence(
         ProjectEntity::class,
         ProjectThreadCrossRef::class
     ],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -57,11 +59,17 @@ abstract class AppDatabase : RoomDatabase() {
 
         private const val PREFS_NAME = "filotheque_prefs"
         private const val KEY_SEED_VERSION = "seed_version"
-        private const val CURRENT_SEED_VERSION = 2
+        private const val CURRENT_SEED_VERSION = 3
 
         private val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("ALTER TABLE threads ADD COLUMN isGlitter INTEGER NOT NULL DEFAULT 0")
+            }
+        }
+
+        private val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE threads ADD COLUMN gradientColors TEXT NOT NULL DEFAULT ''")
             }
         }
 
@@ -75,7 +83,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "filotheque.db"
                 )
-                    .addMigrations(MIGRATION_1_2)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                     .addCallback(object : Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
@@ -112,6 +120,7 @@ abstract class AppDatabase : RoomDatabase() {
             val dmcList = loadChart(context, "dmc.json", "DMC", "DMC")
             val anchorList = loadChart(context, "anchor.json", "ANCHOR", "Anchor")
             threadDao.insertThreads(dmcList + anchorList)
+            threadDao.markSpecialDmcGlitter()
         }
 
         private suspend fun prepopulate(context: Context, db: AppDatabase) {
@@ -156,7 +165,9 @@ abstract class AppDatabase : RoomDatabase() {
                     hexColor = item.hex,
                     colorFamily = item.family,
                     quantity = 0,
-                    isOnShoppingList = false
+                    isOnShoppingList = false,
+                    isGlitter = item.isGlitter,
+                    gradientColors = item.gradientColors
                 )
             }
         }

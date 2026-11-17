@@ -29,7 +29,8 @@ data class BackupThread(
     val quantity: Int,
     val isOnShoppingList: Boolean,
     val note: String,
-    val isGlitter: Boolean = false
+    val isGlitter: Boolean = false,
+    val gradientColors: String = ""
 )
 
 @Serializable
@@ -68,7 +69,8 @@ class BackupManager(
                 quantity = it.quantity,
                 isOnShoppingList = it.isOnShoppingList,
                 note = it.note,
-                isGlitter = it.isGlitter
+                isGlitter = it.isGlitter,
+                gradientColors = it.gradientColors
             )
         }
         val projects = projectDao.getAllProjectsWithThreads().map { pwt ->
@@ -98,6 +100,7 @@ class BackupManager(
                         isOnShoppingList = bt.isOnShoppingList,
                         note = bt.note,
                         isGlitter = bt.isGlitter,
+                        gradientColors = bt.gradientColors,
                         updatedAt = System.currentTimeMillis()
                     )
                 )
@@ -116,7 +119,8 @@ class BackupManager(
                         quantity = bt.quantity,
                         isOnShoppingList = bt.isOnShoppingList,
                         note = bt.note,
-                        isGlitter = bt.isGlitter
+                        isGlitter = bt.isGlitter,
+                        gradientColors = bt.gradientColors
                     )
                 )
             }

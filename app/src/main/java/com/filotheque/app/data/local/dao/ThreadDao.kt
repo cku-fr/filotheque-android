@@ -62,4 +62,7 @@ interface ThreadDao {
 
     @Query("DELETE FROM threads WHERE id = :threadId AND brandId NOT IN ('DMC', 'ANCHOR')")
     suspend fun deleteCustomThread(threadId: Long)
+
+    @Query("UPDATE threads SET isGlitter = 1 WHERE brandId = 'DMC' AND ((UPPER(code) LIKE 'E%' AND UPPER(code) != 'ECRU') OR UPPER(code) LIKE 'C%')")
+    suspend fun markSpecialDmcGlitter()
 }
