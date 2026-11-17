@@ -86,6 +86,8 @@ object OtaUpdater {
         apkUrl: String,
         onProgress: (Int) -> Unit
     ) = withContext(Dispatchers.IO) {
+        require(apkUrl.startsWith("https://")) { "URL de mise à jour non sécurisée" }
+
         val updatesDir = File(context.cacheDir, "updates").apply { mkdirs() }
         val outFile = File(updatesDir, "filotheque-update.apk")
 
@@ -95,6 +97,9 @@ object OtaUpdater {
             readTimeout = 30000
         }
         try {
+            if (conn.responseCode != HttpURLConnection.HTTP_OK) {
+                throw IllegalStateException("Téléchargement impossible (HTTP ${conn.responseCode})")
+            }
             val total = conn.contentLength.coerceAtLeast(1)
             conn.inputStream.use { input ->
                 outFile.outputStream().use { output ->
