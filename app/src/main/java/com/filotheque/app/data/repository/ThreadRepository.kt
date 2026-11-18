@@ -81,7 +81,8 @@ class ThreadRepository(
         val found = mutableListOf<String>()
         val notFound = mutableListOf<String>()
 
-        for (code in tokens) {
+        for (rawCode in tokens) {
+            val code = if (brandId == "DMC" && rawCode == "5200") "B5200" else rawCode
             val thread = threadDao.findByBrandAndCode(brandId, code)
             if (thread != null) {
                 threadDao.adjustQuantity(thread.id, 1)

@@ -59,7 +59,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         private const val PREFS_NAME = "filotheque_prefs"
         private const val KEY_SEED_VERSION = "seed_version"
-        private const val CURRENT_SEED_VERSION = 3
+        private const val CURRENT_SEED_VERSION = 4
 
         private val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {

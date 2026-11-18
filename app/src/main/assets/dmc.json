@@ -4365,5 +4365,248 @@
     "hex": "#B0C0DA",
     "family": "Bleu",
     "gradientColors": "#B0C0DA,#C39FC3,#917B73,#DCC4AA"
+  },
+  {
+    "code": "48",
+    "name": "Variegated Baby Pink",
+    "hex": "#CD2F63",
+    "family": "Rose",
+    "gradientColors": "#CD2F63,#E24874,#FFC0CD"
+  },
+  {
+    "code": "51",
+    "name": "Variegated Burnt Orange",
+    "hex": "#F78B13",
+    "family": "Orange",
+    "gradientColors": "#F78B13,#FDBD96,#F2AF68"
+  },
+  {
+    "code": "52",
+    "name": "Variegated Violet",
+    "hex": "#E6CCD9",
+    "family": "Noir/Gris",
+    "gradientColors": "#E6CCD9,#835B8B,#5C184E,#6C3A6E"
+  },
+  {
+    "code": "53",
+    "name": "Variegated Steel Gray",
+    "hex": "#D1D1D1",
+    "family": "Noir/Gris",
+    "gradientColors": "#D1D1D1,#565656,#424242"
+  },
+  {
+    "code": "57",
+    "name": "Variegated Red",
+    "hex": "#E31D42",
+    "family": "Rouge",
+    "gradientColors": "#E31D42,#E74967,#FFADBC"
+  },
+  {
+    "code": "67",
+    "name": "Variegated Baby Blue",
+    "hex": "#D9EBF1",
+    "family": "Blanc",
+    "gradientColors": "#D9EBF1,#EEFCFC,#B8D2E6"
+  },
+  {
+    "code": "69",
+    "name": "Variegated Terra Cotta",
+    "hex": "#F7CBBF",
+    "family": "Rouge",
+    "gradientColors": "#F7CBBF,#863022,#B95544"
+  },
+  {
+    "code": "90",
+    "name": "Variegated Yellow",
+    "hex": "#FFA32B",
+    "family": "Orange",
+    "gradientColors": "#FFA32B,#FFBF57,#FDED54"
+  },
+  {
+    "code": "92",
+    "name": "Variegated Avocado",
+    "hex": "#AEBF79",
+    "family": "Vert",
+    "gradientColors": "#AEBF79,#E4ECD4,#557822"
+  },
+  {
+    "code": "93",
+    "name": "Variegated Cornflower Blue",
+    "hex": "#C0CCDE",
+    "family": "Noir/Gris",
+    "gradientColors": "#C0CCDE,#466A8E,#11416D"
+  },
+  {
+    "code": "94",
+    "name": "Variegated Khaki Green",
+    "hex": "#827B30",
+    "family": "Jaune",
+    "gradientColors": "#827B30,#A6A75D,#B9B982"
+  },
+  {
+    "code": "99",
+    "name": "Variegated Mauve",
+    "hex": "#C96B70",
+    "family": "Rouge",
+    "gradientColors": "#C96B70,#FFDFD9,#881531"
+  },
+  {
+    "code": "101",
+    "name": "Variegated Spring Green",
+    "hex": "#A2D6AD",
+    "family": "Vert",
+    "gradientColors": "#A2D6AD,#6DAB77,#9ECF34"
+  },
+  {
+    "code": "103",
+    "name": "Variegated Royal Blue",
+    "hex": "#2C597C",
+    "family": "Bleu",
+    "gradientColors": "#2C597C,#35668B,#466A8E"
+  },
+  {
+    "code": "105",
+    "name": "Variegated Tan / Brown",
+    "hex": "#985E33",
+    "family": "Orange",
+    "gradientColors": "#985E33,#CB9051,#F8E4C8"
+  },
+  {
+    "code": "106",
+    "name": "Variegated Coral",
+    "hex": "#FA3203",
+    "family": "Rouge",
+    "gradientColors": "#FA3203,#FFDED5,#FCAB98"
+  },
+  {
+    "code": "107",
+    "name": "Variegated Carnation",
+    "hex": "#C72B3B",
+    "family": "Rouge",
+    "gradientColors": "#C72B3B,#B33B4B,#E24874,#FFA4BE"
+  },
+  {
+    "code": "111",
+    "name": "Variegated Mustard",
+    "hex": "#94631A",
+    "family": "Orange",
+    "gradientColors": "#94631A,#AE7720,#CE9124"
+  },
+  {
+    "code": "115",
+    "name": "Variegated Garnet",
+    "hex": "#C72B3B",
+    "family": "Rouge",
+    "gradientColors": "#C72B3B,#87071F,#822637"
+  },
+  {
+    "code": "121",
+    "name": "Variegated Delft Blue",
+    "hex": "#BBC3D9",
+    "family": "Noir/Gris",
+    "gradientColors": "#BBC3D9,#11416D,#466A8E"
+  },
+  {
+    "code": "125",
+    "name": "Variegated Seafoam Green",
+    "hex": "#156F49",
+    "family": "Vert",
+    "gradientColors": "#156F49,#1B9D6B,#6DAB77,#A2D6AD"
+  },
+  {
+    "code": "3880",
+    "name": "Shell Pink Medium Very Dark",
+    "hex": "#BC6C64",
+    "family": "Rouge"
+  },
+  {
+    "code": "3881",
+    "name": "Avocado Green Pale",
+    "hex": "#83975F",
+    "family": "Vert"
+  },
+  {
+    "code": "3882",
+    "name": "Cocoa Medium Light",
+    "hex": "#653919",
+    "family": "Marron"
+  },
+  {
+    "code": "3883",
+    "name": "Copper Medium Light",
+    "hex": "#F7976F",
+    "family": "Rouge"
+  },
+  {
+    "code": "3884",
+    "name": "Ash Gray Very Light",
+    "hex": "#AEAEB1",
+    "family": "Noir/Gris"
+  },
+  {
+    "code": "3885",
+    "name": "Baby Blue Very Dark",
+    "hex": "#35668B",
+    "family": "Bleu"
+  },
+  {
+    "code": "3886",
+    "name": "Plum Very Dark",
+    "hex": "#46052D",
+    "family": "Rose"
+  },
+  {
+    "code": "3887",
+    "name": "Lavender Ultra Very Dark",
+    "hex": "#6C3A6E",
+    "family": "Violet"
+  },
+  {
+    "code": "3888",
+    "name": "Antique Violet Medium Dark",
+    "hex": "#785762",
+    "family": "Rose"
+  },
+  {
+    "code": "3889",
+    "name": "Lemon Medium Light",
+    "hex": "#FFFB8B",
+    "family": "Jaune"
+  },
+  {
+    "code": "3890",
+    "name": "Bright Turquoise Very Light",
+    "hex": "#06E3E6",
+    "family": "Bleu"
+  },
+  {
+    "code": "3891",
+    "name": "Bright Turquoise Very Dark",
+    "hex": "#12AEBA",
+    "family": "Bleu"
+  },
+  {
+    "code": "3892",
+    "name": "Orange Spice Medium Light",
+    "hex": "#F78B13",
+    "family": "Orange"
+  },
+  {
+    "code": "3893",
+    "name": "Mocha Beige Very Light",
+    "hex": "#F2E3CE",
+    "family": "Orange"
+  },
+  {
+    "code": "3894",
+    "name": "Parrot Green Very Light",
+    "hex": "#C7E666",
+    "family": "Vert"
+  },
+  {
+    "code": "3895",
+    "name": "Beaver Gray Medium Dark",
+    "hex": "#BCB4AC",
+    "family": "Noir/Gris"
   }
 ]
