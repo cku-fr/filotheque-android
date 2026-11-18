@@ -14,8 +14,8 @@ android {
         applicationId = "com.filotheque.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 9
-        versionName = "1.1.7"
+        versionCode = 10
+        versionName = "1.1.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
